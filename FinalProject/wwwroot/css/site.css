@@ -20,3 +20,15 @@ html {
 body {
   margin-bottom: 60px;
 }
+#myCarousel {
+    height: 100vh;
+    width: 100%;
+}
+
+/* Set the background of each carousel item to the desired image */
+.carousel-item {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
