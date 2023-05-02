@@ -12,9 +12,10 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <img src="https://cdn.freebiesupply.com/logos/large/2x/test-1-logo-svg-vector.svg" style="max-width:5%; max-height:5%"/>
+                <a asp-controller="home" asp-action="Index" style="max-width:150px">
+                    <img src="../img/icon.jpeg" style="width:90%; height:90%" />
+                </a>
 
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FinalProject</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -36,10 +37,10 @@
                         Dropdown
                     </a>
                     <div class="dropdown-menu" style="left:-80px" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Login</a>
+                        <a class="dropdown-item" href="#">Registrar</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Eventos</a>
                     </div>
                 </li>
             </ul>
@@ -53,11 +54,25 @@
 
     <footer class="border-top footer text-muted" style="background-color:black">
         <div class="container">
-            &copy; 2023 - FeedForAll - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            <div style="float:right">
-                <!--Google map-->
-                <div id="map-container-google-1" class="z-depth-1-half map-container" style="padding-top: 10%">
-                    <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <div class="row">
+                <div class="col-5">
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Politica de privacidad</a>
+                    <br />
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Nuestros Objetivos</a>
+                    <br />
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Cookies</a>
+                    <br />
+                </div>
+                <div class="col" style="margin-top: 130px">
+                    &copy; 2023 - FeedForAll -
+                </div>
+                <div class="col" style="padding-top: 2%">
+                    <div style="float:right">
+                        <!--Google map-->
+                        <div id="map-container-google-1" class="z-depth-1-half map-container">
+                            <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
