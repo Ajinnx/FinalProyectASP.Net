@@ -51,9 +51,15 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" style="background-color:black">
         <div class="container">
-            &copy; 2023 - FinalProject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - FeedForAll - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div style="float:right">
+                <!--Google map-->
+                <div id="map-container-google-1" class="z-depth-1-half map-container" style="padding-top: 10%">
+                    <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
