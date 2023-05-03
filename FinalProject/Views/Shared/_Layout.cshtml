@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm  navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a asp-controller="home" asp-action="Index" style="max-width:150px">
                     <img src="../img/icon.jpeg" style="width:90%; height:90%" />
@@ -29,21 +29,21 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navbar-toggler-icon" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                
+                            </a>
+                            <div class="dropdown-menu" style="left:-80px" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Login</a>
+                                <a class="dropdown-item" href="#">Registrar</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Eventos</a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" style="left:-80px" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Login</a>
-                        <a class="dropdown-item" href="#">Registrar</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Eventos</a>
-                    </div>
-                </li>
-            </ul>
         </nav>
     </header>
     <div class="container">
@@ -52,10 +52,10 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted" style="background-color:black">
-        <div class="container">
+    <footer class="border-top footer text-muted">
+        <div class="container" style="background-color:black">
             <div class="row">
-                <div class="col-5">
+                <div class="col-sm-12 col-md-5">
                     <a asp-area="" asp-controller="Home" asp-action="Privacy">Politica de privacidad</a>
                     <br />
                     <a asp-area="" asp-controller="Home" asp-action="Privacy">Nuestros Objetivos</a>
@@ -63,10 +63,10 @@
                     <a asp-area="" asp-controller="Home" asp-action="Privacy">Cookies</a>
                     <br />
                 </div>
-                <div class="col" style="margin-top: 130px">
+                <div class="col-sm-12 col-md" style="margin-top:10%">
                     &copy; 2023 - FeedForAll -
                 </div>
-                <div class="col" style="padding-top: 2%">
+                <div class="col-sm-12 col-md" style="margin-top: 20px;">
                     <div style="float:right">
                         <!--Google map-->
                         <div id="map-container-google-1" class="z-depth-1-half map-container">
