@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230503104746_MigrationB")]
-    partial class MigrationB
+    [Migration("20230504073818_ThirdMigration")]
+    partial class ThirdMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -91,16 +91,20 @@ namespace FinalProject.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("FechaHoraFin")
-                        .HasColumnType("datetime2");
+                        .HasPrecision(0)
+                        .HasColumnType("datetime2(0)");
 
                     b.Property<DateTime>("FechaHoraInicio")
-                        .HasColumnType("datetime2");
+                        .HasPrecision(0)
+                        .HasColumnType("datetime2(0)");
 
-                    b.Property<double>("Latitud")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Latitud")
+                        .HasPrecision(12, 7)
+                        .HasColumnType("decimal(12,7)");
 
-                    b.Property<double>("Longitud")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Longitud")
+                        .HasPrecision(12, 7)
+                        .HasColumnType("decimal(12,7)");
 
                     b.Property<string>("NombreProducto")
                         .IsRequired()
@@ -164,6 +168,10 @@ namespace FinalProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Usuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("UsuariosEmpresas");
@@ -201,6 +209,10 @@ namespace FinalProject.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("TelefonoDirector")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Usuario")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -244,6 +256,10 @@ namespace FinalProject.Migrations
                     b.Property<int>("Puntuacion")
                         .HasColumnType("int");
 
+                    b.Property<string>("Usuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("UsuariosProveedores");
@@ -270,6 +286,10 @@ namespace FinalProject.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Usuario")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -310,7 +330,7 @@ namespace FinalProject.Migrations
 
             modelBuilder.Entity("FinalProject.Models.Evento", b =>
                 {
-                    b.HasOne("FinalProject.Models.UsuarioProveedor", "UsuarioEmpresa")
+                    b.HasOne("FinalProject.Models.UsuarioEmpresa", "UsuarioEmpresa")
                         .WithMany()
                         .HasForeignKey("UsuarioEmpresaId");
 

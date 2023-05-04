@@ -1,4 +1,5 @@
 ﻿using FinalProject.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject.Models.DTOs;
 
@@ -13,9 +14,17 @@ public sealed class EventoDto
     public int CantidadPublicadaProducto { get; set; }
     public int UnidadesRestantes { get; set; }
     public string Direccion { get; set; } = string.Empty;
-    public double Longitud { get; set; }
-    public double Latitud { get; set; }
+
+    [Precision(12, 7)]
+    public decimal Longitud { get; set; }
+
+    [Precision(12, 7)]
+    public decimal Latitud { get; set; }
+
+    [Precision(0, 0)]
     public DateTime FechaHoraInicio { get; set; }
+
+    [Precision(0, 0)]
     public DateTime FechaHoraFin { get; set; }
     public int CategoriaHoraria { get; set; }
     public List<int> Alergias { get; set; } = new();

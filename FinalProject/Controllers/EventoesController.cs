@@ -2,6 +2,7 @@
 using FinalProject.Models.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace FinalProject.Controllers;
 
@@ -22,8 +23,11 @@ public class EventoesController : ControllerBase
         if (_context.Eventos == null)
             return (ActionResult<IEnumerable<EventoDto>>)NotFound();
 
+        var list = await _context.Eventos
+            .Include(e => e.Alergias)
+            .Include(e => e.UsuariosReceptores)
+            .ToListAsync();
 
-        var list = await _context.Eventos.ToListAsync();
         return (ActionResult<IEnumerable<EventoDto>>)list.Select(EventoDto.ToDto).ToList();
     }
 
@@ -31,12 +35,16 @@ public class EventoesController : ControllerBase
     public async Task<ActionResult<EventoDto>> GetEvento(int id)
     {
         if (_context.Eventos == null)
-        {
             return NotFound();
-        }
-        var evento = await _context.Eventos.FindAsync(id);
 
-        return evento == null ? (ActionResult<EventoDto>)NotFound() : (ActionResult<EventoDto>)EventoDto.ToDto(evento);
+        var evento = await _context.Eventos
+            .Include(e => e.Alergias)
+            .Include(e => e.UsuariosReceptores)
+            .Where(e => e.Id == id).FirstOrDefaultAsync();
+
+        return evento == null
+            ? (ActionResult<EventoDto>)NotFound()
+            : (ActionResult<EventoDto>)EventoDto.ToDto(evento);
     }
 
     [HttpPut("{id}")]

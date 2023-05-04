@@ -5,7 +5,7 @@
 namespace FinalProject.Migrations;
 
 /// <inheritdoc />
-public partial class MigrationB : Migration
+public partial class ThirdMigration : Migration
 {
     /// <inheritdoc />
     protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,6 +32,7 @@ public partial class MigrationB : Migration
                 NombreEmpresa = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 Cif = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 Direccion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                Usuario = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 Contrasena = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 TelefonoDirector = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 CorreoElectronicoDirector = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -51,6 +52,7 @@ public partial class MigrationB : Migration
                 NombreOng = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 Cif = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 Direccion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                Usuario = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 Contrasena = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 TelefonoDirector = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 CorreoElectronicoDirector = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -70,6 +72,7 @@ public partial class MigrationB : Migration
                 Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 Apellidos = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 Dni = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                Usuario = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 Contrasena = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 DireccionDomicilio = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 CorreoElectronico = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -89,6 +92,7 @@ public partial class MigrationB : Migration
                 Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 Apellidos = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 Dni = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                Usuario = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 Contrasena = table.Column<string>(type: "nvarchar(max)", nullable: false)
             },
             constraints: table =>
@@ -109,24 +113,24 @@ public partial class MigrationB : Migration
                 CantidadPublicadaProducto = table.Column<int>(type: "int", nullable: false),
                 UnidadesRestantes = table.Column<int>(type: "int", nullable: false),
                 Direccion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                Longitud = table.Column<double>(type: "float", nullable: false),
-                Latitud = table.Column<double>(type: "float", nullable: false),
-                FechaHoraInicio = table.Column<DateTime>(type: "datetime2", nullable: false),
-                FechaHoraFin = table.Column<DateTime>(type: "datetime2", nullable: false),
+                Longitud = table.Column<decimal>(type: "decimal(12,7)", precision: 12, scale: 7, nullable: false),
+                Latitud = table.Column<decimal>(type: "decimal(12,7)", precision: 12, scale: 7, nullable: false),
+                FechaHoraInicio = table.Column<DateTime>(type: "datetime2(0)", precision: 0, scale: 0, nullable: false),
+                FechaHoraFin = table.Column<DateTime>(type: "datetime2(0)", precision: 0, scale: 0, nullable: false),
                 CategoriaHoraria = table.Column<int>(type: "int", nullable: false)
             },
             constraints: table =>
             {
                 table.PrimaryKey("PK_Eventos", x => x.Id);
                 table.ForeignKey(
+                    name: "FK_Eventos_UsuariosEmpresas_UsuarioEmpresaId",
+                    column: x => x.UsuarioEmpresaId,
+                    principalTable: "UsuariosEmpresas",
+                    principalColumn: "Id");
+                table.ForeignKey(
                     name: "FK_Eventos_UsuariosOngs_UsuarioOngId",
                     column: x => x.UsuarioOngId,
                     principalTable: "UsuariosOngs",
-                    principalColumn: "Id");
-                table.ForeignKey(
-                    name: "FK_Eventos_UsuariosProveedores_UsuarioEmpresaId",
-                    column: x => x.UsuarioEmpresaId,
-                    principalTable: "UsuariosProveedores",
                     principalColumn: "Id");
                 table.ForeignKey(
                     name: "FK_Eventos_UsuariosProveedores_UsuarioProveedorId",
@@ -219,9 +223,6 @@ public partial class MigrationB : Migration
             name: "EventoUsuarioReceptor");
 
         migrationBuilder.DropTable(
-            name: "UsuariosEmpresas");
-
-        migrationBuilder.DropTable(
             name: "Alergias");
 
         migrationBuilder.DropTable(
@@ -229,6 +230,9 @@ public partial class MigrationB : Migration
 
         migrationBuilder.DropTable(
             name: "UsuariosReceptores");
+
+        migrationBuilder.DropTable(
+            name: "UsuariosEmpresas");
 
         migrationBuilder.DropTable(
             name: "UsuariosOngs");

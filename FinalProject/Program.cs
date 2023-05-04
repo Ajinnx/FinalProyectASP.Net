@@ -15,7 +15,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseCors(policyBuilder => policyBuilder.AllowAnyOrigin());
+app.UseCors(policyBuilder => policyBuilder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
