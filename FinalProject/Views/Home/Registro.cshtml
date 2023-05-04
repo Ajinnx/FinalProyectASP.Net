@@ -3,56 +3,75 @@
 *@
 @{
 }
-<div >
-    <!-- Botón para abrir el formulario modal -->
-    <card>
-        
-    </card>
-    
+<style>
+    .card.hover:hover {
+        background-color: #F9F5BB;
+    }
 
-    <!-- Botón para abrir el formulario modal -->
-    <card>
-        
-    </card>
-        <!-- Botón para abrir el formulario modal -->
-    <card>
-        
-    </card>
+    .card {
+        display: flex;
+        align-items: stretch;
+    }
 
-    <div class="container">
+    .card-body {
+        flex: 1;
+        padding: 0;
+    }
+
+    p{
+        text-align: justify;
+        letter-spacing: -1px;
+        word-spacing: -1px;
+        margin:5%;
+    }
+
+
+</style>
+    <div class="container" style="margin-auto; margin-top:100px;">
         <div class="row">
             <!-- Estructura de card con imagen, título, texto y botón -->
-            <div class="col-sm-3">
-                <div class="card">
+            <div class="col-sm-3 text-center">
+            <div class="card hover" type="button" data-bs-toggle="modal" data-bs-target="#formularioReceptor">
+                <div class="card-body">
+                    <img src="https://i.ytimg.com/vi/DwlzqcGhITA/maxresdefault.jpg" style="height:100px; width:100px;">
+                    <p>Recuerda que no estás solo, hay personas y organizaciones dispuestas a ayudarte con alimentos y 
+                        suministros básicos.</p>
+                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#formularioReceptor">
+                        Receptor
+                    </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 text-center">
+            <div class="card hover" type="button" data-bs-toggle="modal" data-bs-target="#formularioPersonal">
                     <div class="card-body">
-                        <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#formularioModal2">
-                            Abrir formulario
+                        <img src="https://i.ytimg.com/vi/DwlzqcGhITA/maxresdefault.jpg" style="height:100px; width:100px;">
+                        <p>Tu donación de alimentos puede marcar la diferencia en la vida de alguien necesitado. ¡Dona hoy y haz tu parte para construir un mundo más justo y equitativo!</p>
+                        <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#formularioPersonal">
+                            Personal
                         </button>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="card">
+            <div class="col-sm-3 text-center">
+            <div class="card hover" type="button" data-bs-toggle="modal" data-bs-target="#formularioEmpresa">
                     <div class="card-body">
-                        <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#formularioModal">
-                            Abrir formulario
+                        <img src="https://i.ytimg.com/vi/DwlzqcGhITA/maxresdefault.jpg" style="height:100px; width:100px;">
+                    <p>Al donar alimentos, no solo estás haciendo una diferencia positiva en la comunidad, sino que también estás demostrando el compromiso de tu empresa con la responsabilidad social corporativa y el bienestar de las personas necesitadas.</p>
+                        <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#formularioEmpresa">
+                            Empresa
                         </button>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="card">
+            <div class="col-sm-3 text-center">
+            <div class="card hover" class="card hover" type="button" data-bs-toggle="modal" data-bs-target="#mensajeONG">
                     <div class="card-body">
+                        <img src="https://i.ytimg.com/vi/DwlzqcGhITA/maxresdefault.jpg" style="height:100px; width:100px;">
+                    <p>Trabajando juntos podemos unir fuerzas y recursos para ayudar a quienes más lo necesitan. ¡Únete a nosotros y juntos hagamos una diferencia real en la comunidad!</p>
                         <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#mensajeONG">
-                            Abrir formulario
+                            ONG
                         </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card">
-                    <div class="card-body">
-                        <button type="button" class="btn" data-toggle="modal" data-target="#myModal3">Agregar empresa</button>
                     </div>
                 </div>
             </div>
@@ -61,39 +80,39 @@
     
 </div>
 <!-- Formulario modal -->
-<div class="modal fade" id="formularioModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+<div class="modal fade" id="formularioReceptor" tabindex="-1" aria-labelledby="formREC" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel2">Formulario de registro</h5>
+                <h5 class="modal-title" id="formREC">Formulario del Receptor</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <!-- Formulario con los campos -->
-                <form id="formulario">
+                <form id="formularioUserReceptor">
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" required>
+                        <input type="text" class="form-control" id="nombreREC" required>
                     </div>
                     <div class="mb-3">
                         <label for="apellidos" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="apellidos" required>
+                        <input type="text" class="form-control" id="apellidosREC" required>
                     </div>
                     <div class="mb-3">
                         <label for="dni" class="form-label">DNI</label>
-                        <input type="text" class="form-control" id="dni" required>
+                        <input type="text" class="form-control" id="dniREC" required>
                     </div>
                     <div class="mb-3">
                         <label for="contrasena" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="contrasena" required>
+                        <input type="password" class="form-control" id="contraseÑaREC" required>
                     </div>
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="text" class="form-control" id="telefono" required>
+                        <input type="text" class="form-control" id="telefonoREC" required>
                     </div>
                     <div class="mb-3">
                         <label for="hijos" class="form-label">Hijos</label>
-                        <input type="number" class="form-control" id="hijos" required>
+                        <input type="number" class="form-control" id="hijosREC" required>
                     </div>
                 </form>
             </div>
@@ -108,43 +127,43 @@
 
 
 <!-- Formulario modal -->
-<div class="modal fade" id="formularioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="formularioPersonal" tabindex="-1" aria-labelledby="formPER" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Formulario de registro</h5>
+                <h5 class="modal-title" id="formPER">Formulario Personal</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <!-- Formulario con los campos -->
-                <form id="formulario">
+                <form id="formularioUserPersonal">
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" required>
+                        <input type="text" class="form-control" id="nombrePER" required>
                     </div>
                     <div class="mb-3">
                         <label for="apellidos" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="apellidos" required>
+                        <input type="text" class="form-control" id="apellidosPER" required>
                     </div>
                     <div class="mb-3">
                         <label for="dni" class="form-label">DNI</label>
-                        <input type="text" class="form-control" id="dni" required>
+                        <input type="text" class="form-control" id="dniPER" required>
                     </div>
                     <div class="mb-3">
                         <label for="contrasena" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="contrasena" required>
+                        <input type="password" class="form-control" id="contraseñaPER" required>
                     </div>
                     <div class="mb-3">
                         <label for="direccion" class="form-label">Dirección</label>
-                        <input type="text" class="form-control" id="direccion" required>
+                        <input type="text" class="form-control" id="direccionPER" required>
                     </div>
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="text" class="form-control" id="telefono" required>
+                        <input type="text" class="form-control" id="telefonoPER" required>
                     </div>
                     <div class="mb-3">
                         <label for="correo" class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control" id="correo" required>
+                        <input type="email" class="form-control" id="correoPER" required>
                     </div>
                 </form>
             </div>
@@ -159,11 +178,11 @@
 
 
 <!-- Formulario modal -->
-<div class="modal fade" id="mensajeONG" tabindex="-1" aria-labelledby="mensajeONG1" aria-hidden="true">
+<div class="modal fade" id="mensajeONG" tabindex="-1" aria-labelledby="msnONG" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="mensajeONG1">Gracias por colaborar</h5>
+                <h5 class="modal-title" id="msnONG">Gracias por colaborar</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -174,13 +193,12 @@
 </div>
 
 
-
 <!-- Formulario modal -->
-<div class="modal fade" id="formularioModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+<div class="modal fade" id="formularioEmpresa" tabindex="-1" aria-labelledby="formularioEMP" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel3">Formulario de registro</h5>
+                <h5 class="modal-title" id="formularioEMP">Formulario de la Empresa</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -188,23 +206,23 @@
                 <form id="formemp">
                     <div class="form-group">
                         <label for="nombreEmpresa">Nombre de la empresa:</label>
-                        <input type="text" class="form-control" id="nombreEmpresa">
+                        <input type="text" class="form-control" id="nombreEMP" required>
                     </div>
                     <div class="form-group">
                         <label for="cif">CIF:</label>
-                        <input type="text" class="form-control" id="cif">
+                        <input type="text" class="form-control" id="cifEMP" required>
                     </div>
                     <div class="form-group">
                         <label for="direccion">Dirección:</label>
-                        <input type="text" class="form-control" id="direccion">
+                        <input type="text" class="form-control" id="direccionEMP" required>
                     </div>
                     <div class="form-group">
                         <label for="telefono">Teléfono de contacto del CEO:</label>
-                        <input type="text" class="form-control" id="telefono">
+                        <input type="text" class="form-control" id="telefonoEMP" required>
                     </div>
                     <div class="form-group">
                         <label for="correo">Correo electrónico del CEO:</label>
-                        <input type="email" class="form-control" id="correo">
+                        <input type="email" class="form-control" id="correoEMP" required>
                     </div>
                 </form>
             </div>
@@ -212,7 +230,9 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-primary" onclick="guardarRegistro()">Guardar</button>
             </div>
+            </div>
         </div>
     </div>
-</div>
+
+
 
