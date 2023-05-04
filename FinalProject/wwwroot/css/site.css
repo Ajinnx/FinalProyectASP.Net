@@ -23,7 +23,7 @@ body {
 @media (max-width: 576px) {
     /* Styles for screens smaller than 576px */
     .footer {
-        font-size: 14px;
+        font-size: 8px;
         height:150px;
     }
 }
@@ -31,7 +31,7 @@ body {
 @media (min-width: 576px) and (max-width: 768px) {
     /* Styles for screens between 576px and 768px */
     .footer {
-        font-size: 16px;
+        font-size: 10px;
         background-color:black;
     }
 }
@@ -39,7 +39,7 @@ body {
 @media (min-width: 768px) {
     /* Styles for screens larger than 768px */
     .footer {
-        font-size: 18px;
+        font-size: 12px;
         background-color:black;
     }
 }
@@ -47,12 +47,13 @@ body {
 #cookieConsentdiv {
     z-index: 1000;
     position: fixed;
-    width: 400px;
+    width: 90%;
+    max-width: 1000px; /* add a max-width to prevent the pop-up from becoming too wide on larger screens */
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px 30px 20px 30px;
+    padding: 20px;
     font-family: 'Century Gothic', sans-serif;
     box-shadow: 0px 3px 10px 5px rgba(0, 0, 0, 0.4);
     text-align: center;
@@ -88,3 +89,7 @@ body {
         text-decoration: underline;
     }
 /* ------------------------------------------------- */
+
+#myCarousel{
+    width:100%;
+}

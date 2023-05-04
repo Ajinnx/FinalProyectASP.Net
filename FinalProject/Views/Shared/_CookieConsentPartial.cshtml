@@ -10,10 +10,20 @@
 {
     <div id="cookieConsentdiv">
         <h3 class="display-6">Cookie Policy</h3>
-        <p>PLEASE ACCEPT OUR <a asp-page="/CookiePolicy">COOKIE POLICY</a>.   </p>
-        <button type="button" data-cookie-string="@cookieStr">
-            <span aria-hidden="true">Accept</span>
-        </button>
+        <h6>
+            A FeedForAll le gustaría utilizar cookies para mejorar tu experiencia.
+        </h6>
+        <p>
+            Obtén más información sobre nuestra política de privacidad. <a asp-action="Privacy">COOKIE POLICY</a>.
+        </p>
+        <div class="row">
+            <button class="col-5" type="button" data-cookie-string="@cookieStr">
+                <span aria-hidden="true">Accept</span>
+            </button>
+            <button class="col-5" type="button" data-cookie-string="@cookieStr" style="float:right">
+                <span aria-hidden="true">Utilizar esenciales</span>
+            </button>
+        </div>
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
