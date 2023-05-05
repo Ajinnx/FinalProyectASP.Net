@@ -93,3 +93,13 @@ body {
 #myCarousel{
     width:100%;
 }
+
+/* Login Section */
+
+#loginStyle {
+    border: solid;
+    width: 48%;
+    height: 32%;
+    background-color: #F9F5BB;
+    margin: auto;
+}
