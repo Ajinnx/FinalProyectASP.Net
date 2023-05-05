@@ -5,6 +5,10 @@ namespace FinalProject.Security;
 
 public static class Encriptacion
 {
+    /// <summary>
+    /// Transforma la contraseña pasada como argumento a una versión encriptada de ésta.
+    /// <br/>Se usan métodos de RNG, salt y SHA256.
+    /// </summary>
     public static string EncriptarContrasena(string contrasena)
     {
         var bytesSal = new byte[32];
@@ -18,6 +22,10 @@ public static class Encriptacion
         return hashContrasenaConSal + ":" + valorSal;
     }
 
+    /// <summary>
+    /// Desencripta y compara la contraseña introducida con
+    /// la contraseña guardada en la base de datos. (<paramref name="contrasenaEncriptada"/>)
+    /// </summary>
     public static bool ValidarContrasena(string contrasenaIntroducida, string contrasenaEncriptada)
     {
         var contrasena = contrasenaEncriptada.Split(':')[0];

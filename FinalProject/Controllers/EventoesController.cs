@@ -2,13 +2,12 @@
 using FinalProject.Models.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace FinalProject.Controllers;
 
 [Route("api/evento")]
 [ApiController]
-public class EventoesController : ControllerBase
+public sealed class EventoesController : ControllerBase
 {
     private readonly AppDbContext _context;
 
@@ -51,9 +50,7 @@ public class EventoesController : ControllerBase
     public async Task<IActionResult> PutEvento(int id, EventoDto eventoDto)
     {
         if (id != eventoDto.Id)
-        {
             return BadRequest();
-        }
 
         _context.Entry(EventoDto.FromDto(eventoDto, _context)).State = EntityState.Modified;
 
@@ -64,13 +61,9 @@ public class EventoesController : ControllerBase
         catch (DbUpdateConcurrencyException)
         {
             if (!EventoExists(id))
-            {
                 return NotFound();
-            }
             else
-            {
                 throw;
-            }
         }
 
         return NoContent();
@@ -80,9 +73,8 @@ public class EventoesController : ControllerBase
     public async Task<ActionResult<EventoDto>> PostEvento(EventoDto eventoDto)
     {
         if (_context.Eventos == null)
-        {
             return Problem("Entity set 'AppDbContext.Eventos'  is null.");
-        }
+
         var evento = _context.Eventos.Add(EventoDto.FromDto(eventoDto, _context));
         await _context.SaveChangesAsync();
 
@@ -93,14 +85,12 @@ public class EventoesController : ControllerBase
     public async Task<IActionResult> DeleteEvento(int id)
     {
         if (_context.Eventos == null)
-        {
             return NotFound();
-        }
+
         var evento = await _context.Eventos.FindAsync(id);
+
         if (evento == null)
-        {
             return NotFound();
-        }
 
         _context.Eventos.Remove(evento);
         await _context.SaveChangesAsync();

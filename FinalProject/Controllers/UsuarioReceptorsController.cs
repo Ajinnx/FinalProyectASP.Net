@@ -7,7 +7,7 @@ namespace FinalProject.Controllers;
 
 [Route("api/usuarios/receptor")]
 [ApiController]
-public class UsuarioReceptorsController : ControllerBase
+public sealed class UsuarioReceptorsController : ControllerBase
 {
     private readonly AppDbContext _context;
 
@@ -22,7 +22,6 @@ public class UsuarioReceptorsController : ControllerBase
         if (_context.UsuariosReceptores == null)
             return (ActionResult<IEnumerable<UsuarioReceptorDto>>)NotFound();
 
-
         var list = await _context.UsuariosReceptores.ToListAsync();
         return (ActionResult<IEnumerable<UsuarioReceptorDto>>)list.Select(UsuarioReceptorDto.ToDto).ToList();
     }
@@ -31,9 +30,8 @@ public class UsuarioReceptorsController : ControllerBase
     public async Task<ActionResult<UsuarioReceptorDto>> GetUsuarioReceptor(int id)
     {
         if (_context.UsuariosReceptores == null)
-        {
             return NotFound();
-        }
+
         var usuarioReceptor = await _context.UsuariosReceptores.FindAsync(id);
 
         return usuarioReceptor == null
@@ -45,9 +43,7 @@ public class UsuarioReceptorsController : ControllerBase
     public async Task<IActionResult> PutUsuarioReceptor(int id, UsuarioReceptorDto usuarioReceptorDto)
     {
         if (id != usuarioReceptorDto.Id)
-        {
             return BadRequest();
-        }
 
         _context.Entry(UsuarioReceptorDto.FromDto(usuarioReceptorDto, _context)).State = EntityState.Modified;
 
@@ -58,13 +54,9 @@ public class UsuarioReceptorsController : ControllerBase
         catch (DbUpdateConcurrencyException)
         {
             if (!UsuarioReceptorExists(id))
-            {
                 return NotFound();
-            }
             else
-            {
                 throw;
-            }
         }
 
         return NoContent();
@@ -74,9 +66,8 @@ public class UsuarioReceptorsController : ControllerBase
     public async Task<ActionResult<UsuarioReceptorDto>> PostUsuarioReceptor(UsuarioReceptorDto usuarioReceptorDto)
     {
         if (_context.UsuariosReceptores == null)
-        {
             return Problem("Entity set 'AppDbContext.UsuariosReceptores'  is null.");
-        }
+
         var usuario = _context.UsuariosReceptores.Add(UsuarioReceptorDto.FromDto(usuarioReceptorDto, _context));
         await _context.SaveChangesAsync();
 
@@ -87,14 +78,12 @@ public class UsuarioReceptorsController : ControllerBase
     public async Task<IActionResult> DeleteUsuarioReceptor(int id)
     {
         if (_context.UsuariosReceptores == null)
-        {
             return NotFound();
-        }
+
         var usuarioReceptor = await _context.UsuariosReceptores.FindAsync(id);
+
         if (usuarioReceptor == null)
-        {
             return NotFound();
-        }
 
         _context.UsuariosReceptores.Remove(usuarioReceptor);
         await _context.SaveChangesAsync();

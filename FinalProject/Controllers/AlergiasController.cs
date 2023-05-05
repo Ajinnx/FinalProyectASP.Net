@@ -7,7 +7,7 @@ namespace FinalProject.Controllers;
 
 [Route("api/alergia")]
 [ApiController]
-public class AlergiasController : ControllerBase
+public sealed class AlergiasController : ControllerBase
 {
     private readonly AppDbContext _context;
 
@@ -16,7 +16,6 @@ public class AlergiasController : ControllerBase
         _context = context;
     }
 
-    // GET: api/Alergias
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Alergia>>> GetAlergias()
     {
@@ -25,28 +24,22 @@ public class AlergiasController : ControllerBase
             : (ActionResult<IEnumerable<Alergia>>)await _context.Alergias.ToListAsync();
     }
 
-    // GET: api/Alergias/5
     [HttpGet("{id}")]
     public async Task<ActionResult<Alergia>> GetAlergia(int id)
     {
         if (_context.Alergias == null)
-        {
             return NotFound();
-        }
+
         var alergia = await _context.Alergias.FindAsync(id);
 
         return alergia == null ? (ActionResult<Alergia>)NotFound() : (ActionResult<Alergia>)alergia;
     }
 
-    // PUT: api/Alergias/5
-    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPut("{id}")]
     public async Task<IActionResult> PutAlergia(int id, Alergia alergia)
     {
         if (id != alergia.Id)
-        {
             return BadRequest();
-        }
 
         _context.Entry(alergia).State = EntityState.Modified;
 
@@ -57,46 +50,36 @@ public class AlergiasController : ControllerBase
         catch (DbUpdateConcurrencyException)
         {
             if (!AlergiaExists(id))
-            {
                 return NotFound();
-            }
             else
-            {
                 throw;
-            }
         }
 
         return NoContent();
     }
 
-    // POST: api/Alergias
-    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPost]
     public async Task<ActionResult<Alergia>> PostAlergia(Alergia alergia)
     {
         if (_context.Alergias == null)
-        {
             return Problem("Entity set 'AppDbContext.Alergias'  is null.");
-        }
+
         _context.Alergias.Add(alergia);
         await _context.SaveChangesAsync();
 
         return CreatedAtAction("GetAlergia", new { id = alergia.Id }, alergia);
     }
 
-    // DELETE: api/Alergias/5
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAlergia(int id)
     {
         if (_context.Alergias == null)
-        {
             return NotFound();
-        }
+
         var alergia = await _context.Alergias.FindAsync(id);
+
         if (alergia == null)
-        {
             return NotFound();
-        }
 
         _context.Alergias.Remove(alergia);
         await _context.SaveChangesAsync();
