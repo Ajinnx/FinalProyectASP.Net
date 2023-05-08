@@ -209,3 +209,54 @@
         </div>
     </div>
 </div>
+
+<script>
+    var form = document.getElementById('formularioUserReceptor');
+    form.onsubmit = function (event) {
+        var xhr = new XMLHttpRequest();
+        var formData = new FormData(form);
+        xhr.open('POST', 'https://localhost:7211/api/usuarios/receptor')
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(JSON.stringify(Object.fromEntries(formData)));
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == XMLHttpRequest.DONE) {
+                form.reset();
+                cargarUsuarios();
+            }
+        }
+
+        return false;
+    }
+
+    function anadirEntradasUsuarios(usuarios) {
+        var listaUsuarios = document.getElementById("listaUsuarios");
+        while (listaUsuarios.childNodes.length > 0) {
+            listaUsuarios.childNodes[0].remove();
+        }
+
+        usuarios.forEach(usuario => {
+            anadirEntradaUsuario(usuario);
+        });
+    }
+
+    function anadirEntradaUsuario(usuario) {
+        var listaUsuarios = document.getElementById("listaUsuarios");
+        var option = document.createElement("option");
+        option.textContent = usuario.nombre;
+        listaUsuarios.appendChild(option);
+    }
+
+    function cargarUsuarios() {
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        fetch("https://localhost:7211/api/usuarios/receptor", requestOptions)
+            .then(response => response.json())
+            .then(result => anadirEntradasUsuarios(result))
+            .catch(error => console.log('Error al cargar los usuarios.', error));
+    }
+
+    cargarUsuarios();
+</script>
