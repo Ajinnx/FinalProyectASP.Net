@@ -18,7 +18,7 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+  
 }
 @media (max-width: 576px) {
     /* Styles for screens smaller than 576px */
@@ -102,4 +102,27 @@ body {
     height: 32%;
     background-color: #F9F5BB;
     margin: auto;
+}
+
+/*----------------------------------------------------*/
+
+.card.hover:hover {
+    background-color: #F9F5BB;
+}
+
+.card {
+    display: flex;
+    align-items: stretch;
+}
+
+.card-body {
+    flex: 1;
+    padding: 0;
+}
+
+p {
+    text-align: justify;
+    letter-spacing: -1px;
+    word-spacing: -1px;
+    margin: 5%;
 }
