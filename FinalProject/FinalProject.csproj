@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>9128c4c0-02d9-4906-aaf1-2aff5dc78140</UserSecretsId>
+    <Title>Feed For All</Title>
   </PropertyGroup>
 
   <ItemGroup>
