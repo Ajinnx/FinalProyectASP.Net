@@ -7,12 +7,16 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FinalProject.styles.css" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm  navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FinalProject</a>
+                <a asp-controller="home" asp-action="Index" style="max-width:150px">
+                    <img src="../img/icon.jpeg" style="width:80%; height:80%" />
+                </a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,25 +24,59 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navbar-toggler-icon" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                
+                            </a>
+                            <div class="dropdown-menu" style="left:-600%" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-controller="Home" asp-action="Login">Login</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="Registro">Registrar</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Eventos</a>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container-fluid">
+        <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - FinalProject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="border-top footer text-muted" style="position:inherit !important; padding-bottom:inherit">
+        <div class="container" style="background-color:black">
+            <div class="row">
+                <div class="col-sm-12 col-md-5">
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Politica de privacidad</a>
+                    <br />
+                    <a asp-area="" asp-controller="Home" asp-action="Objectives">Nuestros Objetivos</a>
+                    <br />
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Cookies</a>
+                    <br />
+                </div>
+                <div class="col-sm-12 col-md" style="margin-top:10%">
+                    &copy; 2023 - FeedForAll -
+                </div>
+                <div class="col-sm-12 col-md" style="margin-top: 20px;">
+                    <div style="float:right">
+                        <!--Google map-->
+                        <div id="map-container-google-1" class="z-depth-1-half map-container">
+                            <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -18,5 +18,111 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+  
+}
+@media (max-width: 576px) {
+    /* Styles for screens smaller than 576px */
+    .footer {
+        font-size: 8px;
+        height:150px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    /* Styles for screens between 576px and 768px */
+    .footer {
+        font-size: 10px;
+        background-color:black;
+    }
+}
+
+@media (min-width: 768px) {
+    /* Styles for screens larger than 768px */
+    .footer {
+        font-size: 12px;
+        background-color:black;
+    }
+}
+ /* cookies section */
+#cookieConsentdiv {
+    z-index: 1000;
+    position: fixed;
+    width: 90%;
+    max-width: 1000px; /* add a max-width to prevent the pop-up from becoming too wide on larger screens */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    font-family: 'Century Gothic', sans-serif;
+    box-shadow: 0px 3px 10px 5px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    border-radius: 30px 30px 0 0;
+}
+
+    #cookieConsentdiv button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border: none;
+        background-color: green;
+        padding: 10px 50px;
+        margin-top: -5px;
+        color: white;
+        transition: all ease 0.5s;
+    }
+
+        #cookieConsentdiv button:hover {
+            background-color: darkgreen;
+        }
+
+    #cookieConsentdiv h3 {
+        font-size: 22px;
+    }
+
+    #cookieConsentdiv p {
+        font-size: 13px;
+    }
+
+    #cookieConsentdiv a {
+        color: gray;
+        text-decoration: underline;
+    }
+/* ------------------------------------------------- */
+
+#myCarousel{
+    width:100%;
+}
+
+/* Login Section */
+
+#loginStyle {
+    border: solid;
+    width: 48%;
+    height: 32%;
+    background-color: #F9F5BB;
+    margin: auto;
+}
+
+/*----------------------------------------------------*/
+
+.card.hover:hover {
+    background-color: #F9F5BB;
+}
+
+.card {
+    display: flex;
+    align-items: stretch;
+}
+
+.card-body {
+    flex: 1;
+    padding: 0;
+}
+
+p {
+    text-align: justify;
+    letter-spacing: -1px;
+    word-spacing: -1px;
+    margin: 5%;
 }

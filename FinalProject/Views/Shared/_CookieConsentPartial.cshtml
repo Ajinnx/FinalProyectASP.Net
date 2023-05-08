@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Http.Features
+
+@{
+    var consentFeatureFlag = Context.Features.Get<ITrackingConsentFeature>();
+    var showBannerFlag = !consentFeatureFlag?.CanTrack ?? false;
+    var cookieStr = consentFeatureFlag?.CreateConsentCookie();
+}
+
+@if (showBannerFlag)
+{
+    <div id="cookieConsentdiv">
+        <h3 class="display-6">Cookie Policy</h3>
+        <h6>
+            A FeedForAll le gustaría utilizar cookies para mejorar tu experiencia.
+        </h6>
+        <p>
+            Obtén más información sobre nuestra política de privacidad. <a asp-action="Privacy">COOKIE POLICY</a>.
+        </p>
+        <div class="row">
+            <button class="col-5" type="button" data-cookie-string="@cookieStr">
+                <span aria-hidden="true">Accept</span>
+            </button>
+            <button class="col-5" type="button" data-cookie-string="@cookieStr" style="float:right">
+                <span aria-hidden="true">Utilizar esenciales</span>
+            </button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#cookieConsentdiv button[data-cookie-string]").bind("click", function () {
+                document.cookie = $("#cookieConsentdiv button").attr("data-cookie-string");
+                $("#cookieConsentdiv").hide();
+            });
+        });
+    </script>
+} 

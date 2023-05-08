@@ -1,0 +1,262 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container" style="margin-auto; margin-top:100px; margin-bottom: 8%">
+    <div class="row">
+        <!-- Estructura de card con imagen, título, texto y botón -->
+        <div class="col-sm-3 text-center">
+            <div class="card hover" type="button" data-bs-toggle="modal" data-bs-target="#formularioReceptor">
+                <div class="card-body">
+                    <img src="https://i.ytimg.com/vi/DwlzqcGhITA/maxresdefault.jpg" style="height:100px; width:100px;">
+                    <p>
+                        Recuerda que no estás solo, hay personas y organizaciones dispuestas a ayudarte con alimentos y
+                        suministros básicos.
+                    </p>
+                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#formularioReceptor">
+                        Receptor
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 text-center">
+            <div class="card hover" type="button" data-bs-toggle="modal" data-bs-target="#formularioPersonal">
+                <div class="card-body">
+                    <img src="https://i.ytimg.com/vi/DwlzqcGhITA/maxresdefault.jpg" style="height:100px; width:100px;">
+                    <p>Tu donación de alimentos puede marcar la diferencia en la vida de alguien necesitado. ¡Dona hoy y haz tu parte para construir un mundo más justo y equitativo!</p>
+                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#formularioPersonal">
+                        Personal
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 text-center">
+            <div class="card hover" type="button" data-bs-toggle="modal" data-bs-target="#formularioEmpresa">
+                <div class="card-body">
+                    <img src="https://i.ytimg.com/vi/DwlzqcGhITA/maxresdefault.jpg" style="height:100px; width:100px;">
+                    <p>Al donar alimentos, no solo estás haciendo una diferencia positiva en la comunidad, sino que también estás demostrando el compromiso de tu empresa con la responsabilidad social corporativa y el bienestar de las personas necesitadas.</p>
+                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#formularioEmpresa">
+                        Empresa
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 text-center">
+            <div class="card hover" class="card hover" type="button" data-bs-toggle="modal" data-bs-target="#mensajeONG">
+                <div class="card-body">
+                    <img src="https://i.ytimg.com/vi/DwlzqcGhITA/maxresdefault.jpg" style="height:100px; width:100px;">
+                    <p>Trabajando juntos podemos unir fuerzas y recursos para ayudar a quienes más lo necesitan. ¡Únete a nosotros y juntos hagamos una diferencia real en la comunidad!</p>
+                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#mensajeONG">
+                        ONG
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Formulario modal -->
+<div class="modal fade" id="formularioReceptor" tabindex="-1" aria-labelledby="formREC" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="formREC">Formulario del Receptor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulario con los campos -->
+                <form id="formularioUserReceptor">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombreREC" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellidos" class="form-label">Apellidos</label>
+                        <input type="text" class="form-control" id="apellidosREC" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dni" class="form-label">DNI</label>
+                        <input type="text" class="form-control" id="dniREC" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contrasena" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="contraseÑaREC" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" id="telefonoREC" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="hijos" class="form-label">Hijos</label>
+                        <input type="number" class="form-control" id="hijosREC" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="guardarRegistro2()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Formulario modal -->
+<div class="modal fade" id="formularioPersonal" tabindex="-1" aria-labelledby="formPER" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="formPER">Formulario Personal</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulario con los campos -->
+                <form id="formularioUserPersonal">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombrePER" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellidos" class="form-label">Apellidos</label>
+                        <input type="text" class="form-control" id="apellidosPER" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dni" class="form-label">DNI</label>
+                        <input type="text" class="form-control" id="dniPER" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contrasena" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="contraseñaPER" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="direccionPER" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" id="telefonoPER" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">Correo electrónico</label>
+                        <input type="email" class="form-control" id="correoPER" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="guardarRegistro()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Formulario modal -->
+<div class="modal fade" id="mensajeONG" tabindex="-1" aria-labelledby="msnONG" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="msnONG">Gracias por colaborar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h1>Hola si quieres ser una ONG tienes que donar unos 70k a mi bizum todo legin no fake 100% real amazing spiderman 7</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Formulario modal -->
+<div class="modal fade" id="formularioEmpresa" tabindex="-1" aria-labelledby="formularioEMP" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="formularioEMP">Formulario de la Empresa</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulario con los campos -->
+                <form id="formemp">
+                    <div class="form-group">
+                        <label for="nombreEmpresa">Nombre de la empresa:</label>
+                        <input type="text" class="form-control" id="nombreEMP" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cif">CIF:</label>
+                        <input type="text" class="form-control" id="cifEMP" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="direccion">Dirección:</label>
+                        <input type="text" class="form-control" id="direccionEMP" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono de contacto del CEO:</label>
+                        <input type="text" class="form-control" id="telefonoEMP" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo electrónico del CEO:</label>
+                        <input type="email" class="form-control" id="correoEMP" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="guardarRegistro()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var form = document.getElementById('formularioUserReceptor');
+    form.onsubmit = function (event) {
+        var xhr = new XMLHttpRequest();
+        var formData = new FormData(form);
+        xhr.open('POST', 'https://localhost:7211/api/usuarios/receptor')
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(JSON.stringify(Object.fromEntries(formData)));
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == XMLHttpRequest.DONE) {
+                form.reset();
+                cargarUsuarios();
+            }
+        }
+
+        return false;
+    }
+
+    function anadirEntradasUsuarios(usuarios) {
+        var listaUsuarios = document.getElementById("listaUsuarios");
+        while (listaUsuarios.childNodes.length > 0) {
+            listaUsuarios.childNodes[0].remove();
+        }
+
+        usuarios.forEach(usuario => {
+            anadirEntradaUsuario(usuario);
+        });
+    }
+
+    function anadirEntradaUsuario(usuario) {
+        var listaUsuarios = document.getElementById("listaUsuarios");
+        var option = document.createElement("option");
+        option.textContent = usuario.nombre;
+        listaUsuarios.appendChild(option);
+    }
+
+    function cargarUsuarios() {
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        fetch("https://localhost:7211/api/usuarios/receptor", requestOptions)
+            .then(response => response.json())
+            .then(result => anadirEntradasUsuarios(result))
+            .catch(error => console.log('Error al cargar los usuarios.', error));
+    }
+
+    cargarUsuarios();
+</script>

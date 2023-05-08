@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container-fluid" style="margin-bottom:8%; margin-top:3%">
+    <div class="text-center d-flex">
+        <div id="loginStyle" style="background-color: #fff; padding: 30px; border-radius: 5px; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); max-width: 60%;">
+            <h1 style="font-size: 32px; font-weight: bold; margin-bottom: 30px;">Iniciar sesión</h1>
+            <form>
+                <div class="form-group">
+                    <input class="form-control" type="text" id="user" placeholder="Usuario" style="font-size: 16px; padding: 12px 20px; border-radius: 5px; border: none; background-color: #f5f5f5; margin-bottom: 20px;" />
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" id="contraseña" placeholder="Contraseña" style="font-size: 16px; padding: 12px 20px; border-radius: 5px; border: none; background-color: #f5f5f5; margin-bottom: 20px;" />
+                </div>
+                <div class="form-group form-check">
+                    <input class="form-check-input" style="float:none" type="checkbox" id="recuerdame">
+                    <label class="form-check-label" for="recuerdame" style="font-size: 14px;">Recuérdame</label>
+                </div>
+                <button class="btn btn-primary btn-block" style="font-size: 16px; padding: 12px; border-radius: 5px; border: none; background-color: #007bff; margin-top: 20px;">Ingresar</button>
+            </form>
+            <div style="font-size: 14px; margin-top: 20px;">
+                <a href="#" style="color: #007bff;">¿Olvidó su contraseña?</a>
+            </div>
+        </div>
+    </div>
+</div>
