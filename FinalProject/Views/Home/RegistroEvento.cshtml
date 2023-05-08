@@ -1,0 +1,82 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container" style="margin-auto; margin-top:100px;">
+    <div class="row">
+        <!-- Estructura de card con imagen, título, texto y botón -->
+        <div class="col-sm-12 text-center">
+            <div class="" type="button" data-bs-toggle="modal" data-bs-target="#formularioEvento">
+                <div class="">
+                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#formularioEvento">
+                        Crear un evento
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Formulario modal -->
+<div class="modal fade" id="formularioEvento" tabindex="-1" aria-labelledby="formEvento" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="formEvento">Formulario del Evento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulario con los campos -->
+                <form id="formularioUserReceptor">
+                    <div class="mb-3">
+                        <label for="nombreProducto" class="form-label">Producto</label>
+                        <input type="text" class="form-control" name="nombreProducto" id="nombreProducto" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cantidadPublicadaPÑroducto" class="form-label">Cantidad de Producto</label>
+                        <input type="number" class="form-control" name="cantidadPublicadaPÑroducto" id="cantidadPublicadaPÑroducto" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Direccion</label>
+                        <input type="text" class="form-control" name="direccion" id="direccion" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fechaHoraInicio" class="form-label">Fecha de Inicio</label>
+                        <input type="date" class="form-control" name="fechaHoraInicio" id="fechaHoraInicio" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fechaHoraFin" class="form-label">Fecha de Fin</label>
+                        <input type="date" class="form-control" name="fechaHoraFin" id="fechaHoraFin" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoriaHoriaria" class="form-label">Categoria Horaria</label>
+                        <select name="categoriaHoriaria" name="categoriaHoriaria" id="categoriaHoriaria">
+                            <option value="0">Desayuno</option>
+                            <option value="1">Comida</option>
+                            <option value="2">Merienda</option>
+                            <option value="3">Cena</option>
+                        </select>
+                    </div>
+                    <hr />
+                    <h1>Alergias</h1>
+                    <div class="mb-3">
+                        <input type="checkbox" id="cerdo" name="cerdo">
+                        <label for="cerdo">Cerdo</label>
+                        <input type="checkbox" id="marisco" name="marisco">
+                        <label for="marisco">Marisco</label>
+                        <input type="checkbox" id="celiaco" name="celiaco">
+                        <label for="celiaco">Celiaco</label>
+                        <input type="checkbox" id="lactosa" name="lactosa">
+                        <label for="lactosa">Lactosa</label>
+                    </div>                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="guardarRegistro2()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

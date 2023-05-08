@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FinalProject",
+    "\\FinalProject\\Views"
   ],
-  "SelectedNode": "\\C:\\Users\\matí\\Source\\Repos\\Ajinnx\\FinalProyectASP.Net",
+  "SelectedNode": "\\FinalProject\\FinalProject.csproj",
   "PreviewInSolutionExplorer": false
 }
