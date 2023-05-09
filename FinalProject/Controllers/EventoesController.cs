@@ -84,8 +84,20 @@ public sealed class EventoesController : ControllerBase
     [HttpPut("{idEvento}/{idUsuario}")]
     public IActionResult SuscribirseAEvento(int idEvento, int idUsuario)
     {
-        var usuario = _context.UsuariosReceptores.Where(x => x.Id == idUsuario).First();
-        _context.Eventos.Where(x => x.Id == idEvento).First().UsuariosReceptores.Add(usuario);
+        var usuario = _context.UsuariosReceptores.Where(x => x.Id == idUsuario).FirstOrDefault();
+        var evento = _context.Eventos.Include(e => e.UsuariosReceptores).Where(x => x.Id == idEvento).FirstOrDefault();
+
+        if (usuario is null || evento is null)
+        {
+            return BadRequest();
+        }
+
+        if (evento.UsuariosReceptores.Any(x => x.Id == idUsuario))
+        {
+            return NoContent();
+        }
+
+        evento.UsuariosReceptores.Add(usuario);
         _context.SaveChanges();
 
         return Accepted();
