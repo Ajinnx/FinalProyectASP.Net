@@ -1,0 +1,9 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/FinalProyectASP.Net/DesignTimeBuild/.dtbcache.v2
+/.vs/FinalProyectASP.Net/FileContentIndex/84b49eda-353c-4d1d-960f-9c173f80684e.vsidx
+/.vs/FinalProyectASP.Net/FileContentIndex/c1a46901-c50f-4f58-9798-99544e38982a.vsidx
+/.vs/FinalProyectASP.Net/FileContentIndex/e4f1608e-9e41-4c70-b6c7-eefe8a1cb82b.vsidx
+/.vs/FinalProyectASP.Net/v17/.futdcache.v2
