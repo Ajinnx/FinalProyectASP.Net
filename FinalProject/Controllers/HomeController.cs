@@ -39,21 +39,6 @@ namespace FinalProject.Controllers
         {
             return View();
         }
-
-        public IActionResult Login()
-        {
-            return View();
-        }
-
-        public IActionResult Registro()
-        {
-            return View();
-        }
-
-        public IActionResult RegistroEvento()
-        {
-            return View();
-        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -1,8 +1,66 @@
 ﻿@{
 }
 <div class="container" style="margin-auto; margin-top:100px;">
+    <div id="filter">
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="cerdo" name="cerdo" value="1" onclick="filter(this)">
+        <label class="form-check-label" for="cerdo">Cerdo</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="marisco" name="marisco" value="2" onclick="filter(this)">
+        <label class="form-check-label" for="marsico">Marisco</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="celiaco" name="celiaco" value="3" onclick="filter(this)">
+        <label class="form-check-label" for="celiaco">Celiaco</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="lactosa" name="lactosa" value="4" onclick="filter(this)">
+        <label class="form-check-label" for="lactosa">Lactosa</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="frutossecos" name="frutossecos" value="5" onclick="filter(this)">
+        <label class="form-check-label" for="frutossecos">Frutos Secos</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="diabetes" name="diabetes" value="6" onclick="filter(this)">
+        <label class="form-check-label" for="diabetes">Diabetes</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="huevos" name="huevos" value="7" onclick="filter(this)">
+        <label class="form-check-label" for="huevos">Huevos</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="hypertension" name="hypertension" value="7" onclick="filter(this)">
+        <label class="form-check-label" for="hypertension">Hypertension</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="pescado" name="pescado" value="8" onclick="filter(this)">
+        <label class="form-check-label" for="pescado">Pescado</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="trigo" name="trigo" value="9" onclick="filter(this)">
+        <label class="form-check-label" for="trigo">Trigo</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="soja" name="soja" value="10" onclick="filter(this)">
+        <label class="form-check-label" for="soja">Soja</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="maiz" name="maiz" value="11" onclick="filter(this)">
+        <label class="form-check-label" for="maiz">Maiz</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="sesamo" name="sesamo" value="12" onclick="filter(this)">
+        <label class="form-check-label" for="sesamo">Sesamo</label>
+    </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="cacahuete" name="cacahuete" value="13" onclick="filter(this)">
+            <label class="form-check-label" for="cacahuete">Cacahuete</label>
+        </div>
+</div>
     <div class="row" id="contenedorEntradas">
-    </div>s
+    </div>
     <div class="row">
         <div class="col-sm-12 text-center">
             <div class="" type="button" data-bs-toggle="modal" data-bs-target="#formularioEvento">
@@ -103,6 +161,80 @@
 </div>
 
 <script>
+
+    function filter(checkbox) {
+
+        // Obtener el valor del checkbox seleccionado
+        const alergiaId = parseInt(checkbox.value);
+            console.log(alergiaId);
+        // Ocultar los datos que tengan el campo "id" igual al campo "alergias" del callAPI
+        callAPI().then((json) => {
+            console.log(json);
+            for (let i = 0; i < json.length; i++) {
+                console.log(alergiaId+json[0].alergias[0]);
+                if (json[i].alergias.includes((alergiaId))) {
+                    console.log(document.getElementById(json[i].id));
+                    var productoVisual = document.getElementById(json[i].id);
+                    
+                    productoVisual.setAttribute("hidden", "true");
+                } 
+            }
+        })
+
+        /*-------------------------------- ES UNA POSIBLE SOLUCION DE LO DE ATRAS ---------------------
+        let elementosOcultos = [];
+
+    function filter(checkbox) {
+    const alergiaId = parseInt(checkbox.value);
+
+    callAPI().then((json) => {
+    for (let i = 0; i < json.length; i++) {
+      if (json[i].alergias.includes(alergiaId)) {
+        const productoVisual = document.getElementById(json[i].id);
+        productoVisual.setAttribute("hidden", "true");
+        elementosOcultos.push(json[i].id);
+      } else {
+        const productoVisual = document.getElementById(json[i].id);
+        productoVisual.removeAttribute("hidden");
+        const index = elementosOcultos.indexOf(json[i].id);
+        if (index !== -1) {
+          elementosOcultos.splice(index, 1);
+        }
+      }
+    }
+    });
+    }
+
+    // al hacer clic nuevamente en el checkbox, mostrar los elementos correspondientes
+    function toggleFilter(checkbox) {
+    const alergiaId = parseInt(checkbox.value);
+    const mostrarElementos = checkbox.checked;
+
+    if (mostrarElementos) {
+    for (let i = 0; i < elementosOcultos.length; i++) {
+      const productoVisual = document.getElementById(elementosOcultos[i]);
+      productoVisual.removeAttribute("hidden");
+    }
+    elementosOcultos = [];
+    } else {
+    callAPI().then((json) => {
+      for (let i = 0; i < json.length; i++) {
+        if (json[i].alergias.includes(alergiaId)) {
+          const productoVisual = document.getElementById(json[i].id);
+          productoVisual.setAttribute("hidden", "true");
+          elementosOcultos.push(json[i].id);
+        }
+      }
+    });
+    }
+    }
+    */
+            ; // Suponiendo que ya tienes la función callAPI() implementada
+        
+        
+    }
+
+
     async function callAPI() {
         const response = await fetch("https://localhost:7211/api/evento");
         const jsonResponse = await response.json();
@@ -113,14 +245,64 @@
         json.forEach((element) => {
             document.getElementById("contenedorEntradas").innerHTML +=
             `
-            <div class="card col-4">
-                <div class="card-body">
+                <div id="${element.id}" class="card col-3">
+                    <div class="card-body" type="button" data-bs-toggle="modal" data-bs-target="#InscripcionEvento">
                     <h5 class="card-title">${element.nombreProducto}</h5>
+                    <h5 class="card-title">${element.fechaHoraInicio}</h5>
+                    <h5 class="card-title">${element.fechaHoraFin}</h5>
+                    <h5 class="card-title">${element.direccion}</h5>
+                    <h5 class="card-title">${element.cantidadPublicadaProducto}</h5>
+                    <h5 class="card-title">${element.alergias}</h5>
+                                                <!-- Formulario modal -->
+                                    <div class="modal fade" id="InscripcionEvento" tabindex="-1" aria-labelledby="InscripcionEventoSi" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                                <h5 class="modal-title" id="InscripcionEventoSi">Gracias por colaborar</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h1>Hola si quieres ser una ONG tienes que donar unos 70k a mi bizum todo legin no fake 100% real amazing spiderman 7</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                 </div>
             </div>
             `;
         })
     });
+
+   /* InsertEventAPI().then((json) => {
+        json.forEach((element) => {
+            document.getElementById("contenedorEntradas").innerHTML +=
+                `
+                <div class="card col-3">
+                        <div class="card-body" type="button" data-bs-toggle="modal" data-bs-target="#InscripcionEvento">
+                        <h5 class="card-title">${element.nombreProducto}</h5>
+                        <h5 class="card-title">${element.fechaHoraInicio}</h5>
+                        <h5 class="card-title">${element.fechaHoraFin}</h5>
+                        <h5 class="card-title">${element.direccion}</h5>
+                        <h5 class="card-title">${element.cantidadPublicadaProducto}</h5>
+                                                    <!-- Formulario modal -->
+                                        <div class="modal fade" id="InscripcionEvento" tabindex="-1" aria-labelledby="InscripcionEventoSi" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                    <h5 class="modal-title" id="InscripcionEventoSi">Gracias por colaborar</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h1>Hola si quieres ser una ONG tienes que donar unos 70k a mi bizum todo legin no fake 100% real amazing spiderman 7</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+                `;
+        })
+    });*/
 
     callAPI();
 </script>
