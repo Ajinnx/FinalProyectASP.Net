@@ -81,6 +81,16 @@ public sealed class EventoesController : ControllerBase
         return CreatedAtAction("GetEvento", new { id = evento.Entity.Id }, EventoDto.ToDto(evento.Entity));
     }
 
+    [HttpPut("{idEvento}/{idUsuario}")]
+    public IActionResult SuscribirseAEvento(int idEvento, int idUsuario)
+    {
+        var usuario = _context.UsuariosReceptores.Where(x => x.Id == idUsuario).First();
+        _context.Eventos.Where(x => x.Id == idEvento).First().UsuariosReceptores.Add(usuario);
+        _context.SaveChanges();
+
+        return Accepted();
+    }
+
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteEvento(int id)
     {
