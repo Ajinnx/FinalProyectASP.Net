@@ -91,6 +91,10 @@
                 <!-- Formulario con los campos -->
                 <form id="formularioUserReceptor">
                     <div class="mb-3">
+                        <label for="usuario" class="form-label">Nombre de Usuario</label>
+                        <input type="text" class="form-control" id="usuarioREC" required>
+                    </div>
+                    <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="nombreREC" required>
                     </div>
@@ -104,21 +108,13 @@
                     </div>
                     <div class="mb-3">
                         <label for="contrasena" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="contraseÑaREC" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="text" class="form-control" id="telefonoREC" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="hijos" class="form-label">Hijos</label>
-                        <input type="number" class="form-control" id="hijosREC" required>
+                        <input type="password" class="form-control" id="contrasenaREC" required>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="guardarRegistro2()">Guardar</button>
+                <button type="button" class="btn btn-primary" onclick="registrarReceptor()">Guardar</button>
             </div>
         </div>
     </div>
@@ -150,8 +146,12 @@
                         <input type="text" class="form-control" id="dniPER" required>
                     </div>
                     <div class="mb-3">
+                        <label for="usuarioPersona" class="form-label">Nombre de Usuario</label>
+                        <input type="text" class="form-control" id="usuarioPER" required>
+                    </div>
+                    <div class="mb-3">
                         <label for="contrasena" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="contraseñaPER" required>
+                        <input type="password" class="form-control" id="contrasenaPER" required>
                     </div>
                     <div class="mb-3">
                         <label for="direccion" class="form-label">Dirección</label>
@@ -169,7 +169,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="guardarRegistro()">Guardar</button>
+                <button type="button" class="btn btn-primary" onclick="registrarPersona()">Guardar</button>
             </div>
         </div>
     </div>
@@ -204,9 +204,17 @@
             <div class="modal-body">
                 <!-- Formulario con los campos -->
                 <form id="formemp">
+                    <div class="mb-3">
+                        <label for="usuarioEmpresa" class="form-label">Nombre de Usuario</label>
+                        <input type="text" class="form-control" id="usuarioEMP" required>
+                    </div>
                     <div class="form-group">
                         <label for="nombreEmpresa">Nombre de la empresa:</label>
                         <input type="text" class="form-control" id="nombreEMP" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contrasena" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="contrasenaEMP" required>
                     </div>
                     <div class="form-group">
                         <label for="cif">CIF:</label>
@@ -228,11 +236,96 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="guardarRegistro()">Guardar</button>
+                <button type="button" class="btn btn-primary" onclick="registrarEmpresa()">Guardar</button>
             </div>
             </div>
         </div>
     </div>
 
+    <script>
+    function registrarReceptor() {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            
+            "nombre": document.getElementById("nombreREC").value,
+            "apellidos": document.getElementById("apellidosREC").value,
+            "dni": document.getElementById("dniREC").value,
+            "usuario": document.getElementById("usuarioREC").value,
+            "contrasena": document.getElementById("contrasenaREC").value
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("https://localhost:7211/api/usuarios/receptor", requestOptions)
+            .then(response => response.text())
+            .then(result => $('#formularioReceptor').modal('hide'))
+            .catch(error => console.log('error', error));
+    }
 
 
+    function registrarPersona() {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "usuario": document.getElementById("usuarioPER").value,
+            "nombre": document.getElementById("nombrePER").value,
+            "apellidos": document.getElementById("apellidosPER").value,
+            "dni": document.getElementById("dniPER").value,
+            "contrasena": document.getElementById("contrasenaPER").value,
+            "direccionDomicilio": document.getElementById("direccionPER").value,
+            "correoElectronico": document.getElementById("correoPER").value,
+            "puntuacion": 3
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("https://localhost:7211/api/usuarios/proveedor", requestOptions)
+            .then(response => response.text())
+            .then(result => $('#formularioPersonal').modal('hide'))
+            .catch(error => console.log('error', error));
+    }
+
+    function registrarEmpresa() {
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "nombreEmpresa": document.getElementById("nombreEMP").value,
+            "cif": document.getElementById("cifEMP").value,
+            "usuario": document.getElementById("usuarioEMP").value,
+            "contrasena": document.getElementById("contrasenaEMP").value,
+            "direccion": document.getElementById("direccionEMP").value,
+            "telefonoDirector": document.getElementById("telefonoEMP").value,
+            "correoElectronico": document.getElementById("correoEMP").value,
+            "puntuacion": 3
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("https://localhost:7211/api/usuarios/empresa", requestOptions)
+            .then(response => response.text())
+            .then(result => $('#formularioEmpresa').modal('hide'))
+            .catch(error => console.log('error', error));
+    }
+
+
+    </script>
