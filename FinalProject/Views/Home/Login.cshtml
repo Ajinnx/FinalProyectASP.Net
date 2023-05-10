@@ -3,9 +3,7 @@
 @model LoginViewModel
 @{
     ViewData["Title"] = "Login";
-    // Check if the cookie exists and set the value of the username field
 }
-
 <div class="container-fluid" style="margin-bottom:8%; margin-top:3%">
     <div class="text-center d-flex">
         <div id="loginStyle" style="background-color: #fff; padding: 30px; border-radius: 5px; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); max-width: 60%;">
@@ -21,7 +19,7 @@
                     <input class="form-check-input" style="float:none" type="checkbox" id="recuerdame">
                     <label class="form-check-label" for="recuerdame" style="font-size: 14px;">Recuérdame</label>
                 </div>
-                <button class="btn btn-primary btn-block" id="loginBtn" style="font-size: 16px; padding: 12px; border-radius: 5px; border: none; background-color: #007bff; margin-top: 20px;">Ingresar</button>
+                <input type="submit" class="btn btn-primary btn-block" id="loginBtn" value="Ingresar" style="font-size: 16px; padding: 12px; border-radius: 5px; border: none; background-color: #007bff; margin-top: 20px;">
             </form>
             <div style="font-size: 14px; margin-top: 20px;">
                 <a href="#" data-bs-toggle="modal" data-bs-target="#formularioReset" style="color: #007bff;">¿Olvidó su contraseña?</a>
@@ -79,52 +77,50 @@
 </script>
 
 <script>
-    const loginBtn = document.getElementById("loginBtn");
-    loginBtn.addEventListener("click", loginUser);
+    // Handle login form submission
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission behavior
 
-    function loginUser() {
-        const username = document.getElementById("user").value;
-        const password = document.getElementById("contraseña").value;
+        // Get the username and password input values
+        var username = document.getElementById("user").value;
+        var password = document.getElementById("contraseña").value;
 
-        function checkCredentials(username, password) {
-            const apiUrl = "https://localhost:7211/api/usuarios";
-            const url = `${apiUrl}?username=${Usuario}&password=${Contraseña}`;
-            return fetch(url)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Network response was not ok");
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    return data.exists;
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                });
-        }
-
-        fetch('https://localhost:7211/api/usuarios', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username, password })
-        })
-
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
+        // Perform API call to check user credentials
+        fetch("https://localhost:7211/api/usuario/" + username)
+            .then(response => response.json())
             .then(data => {
-                // Handle successful login response
-                console.log(data);
+                if (data.contrasena === password) {
+                    // Passwords match, log in user
+                    console.log("User logged in successfully");
+                    // Add your login logic here, for example redirect the user to the dashboard page
+                    loginSuccess();
+                    hideLoginAndRegisterLinks();
+                } else {
+                    // Passwords don't match, display error message
+                    console.log("Invalid username or password");
+                    alert("Invalid username or password");
+                }
             })
             .catch(error => {
-                // Handle login error
-                console.error('Error:', error);
+                console.log("Error checking user credentials", error);
+                alert("Error checking user credentials");
             });
+    });
+</script>
+<script>
+    function loginSuccess() {
+        window.location.href = "/Home/Index";
+    }
+    // Get the navbar dropdown element
+    var navbarDropdown = document.querySelector(".dropdown-menu");
+
+    // Get the "Login" and "Registrar" links
+    var loginLink = navbarDropdown.querySelector("[asp-action='Login']");
+    var registroLink = navbarDropdown.querySelector("[asp-action='Registro']");
+
+    // Hide the links when a user logs in
+    function hideLoginAndRegisterLinks() {
+        navbarDropdown.removeChild(loginLink);
+        navbarDropdown.removeChild(registroLink);
     }
 </script>

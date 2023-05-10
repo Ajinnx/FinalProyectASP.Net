@@ -1,4 +1,5 @@
 using FinalProject.Contexts;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +20,7 @@ app.UseCors(policyBuilder => policyBuilder.AllowAnyOrigin().AllowAnyMethod().All
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseAuthentication();
 app.UseCookiePolicy();
 app.UseAuthorization();
 
