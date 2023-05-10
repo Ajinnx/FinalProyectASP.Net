@@ -1,13 +1,22 @@
 {
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "secrets1": {
+      "type": "secrets"
+    },
+>>>>>>> 1ce33eb58d45c395781edbb9b0dced8fba44e957
     "mssql1": {
       "type": "mssql",
       "connectionId": "ConnectionStrings:FeedForAllOnlineDatabase",
       "dynamicId": null
+<<<<<<< HEAD
     },
     "secrets1": {
       "type": "secrets",
       "connectionId": null
+=======
+>>>>>>> 1ce33eb58d45c395781edbb9b0dced8fba44e957
     }
   }
 }

@@ -1,16 +1,25 @@
 {
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "secrets1": {
+      "type": "secrets.user"
+    },
+>>>>>>> 1ce33eb58d45c395781edbb9b0dced8fba44e957
     "mssql1": {
       "secretStore": "LocalSecretsFile",
       "type": "mssql.onprem",
       "connectionId": "ConnectionStrings:FeedForAllOnlineDatabase",
       "dynamicId": null
+<<<<<<< HEAD
     },
     "secrets1": {
       "secretStore": null,
       "resourceId": null,
       "type": "secrets.user",
       "connectionId": null
+=======
+>>>>>>> 1ce33eb58d45c395781edbb9b0dced8fba44e957
     }
   }
 }
