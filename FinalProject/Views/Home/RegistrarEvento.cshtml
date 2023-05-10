@@ -1,75 +1,81 @@
 ﻿@{
 }
-<div class="container" style="margin-auto; margin-top:100px;">
-    <div id="filter">
-    <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="cerdo" name="cerdo" value="1" onclick="filter(this)">
-        <label class="form-check-label" for="cerdo">Cerdo</label>
-    </div>
-    <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="marisco" name="marisco" value="2" onclick="filter(this)">
-        <label class="form-check-label" for="marsico">Marisco</label>
-    </div>
-    <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="celiaco" name="celiaco" value="3" onclick="filter(this)">
-        <label class="form-check-label" for="celiaco">Celiaco</label>
-    </div>
-    <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="lactosa" name="lactosa" value="4" onclick="filter(this)">
-        <label class="form-check-label" for="lactosa">Lactosa</label>
-    </div>
-    <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="frutossecos" name="frutossecos" value="5" onclick="filter(this)">
-        <label class="form-check-label" for="frutossecos">Frutos Secos</label>
-    </div>
-    <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="diabetes" name="diabetes" value="6" onclick="filter(this)">
-        <label class="form-check-label" for="diabetes">Diabetes</label>
-    </div>
-    <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="huevos" name="huevos" value="7" onclick="filter(this)">
-        <label class="form-check-label" for="huevos">Huevos</label>
-    </div>
-    <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="hypertension" name="hypertension" value="8" onclick="filter(this)">
-        <label class="form-check-label" for="hypertension">Hypertension</label>
-    </div>
-    <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="pescado" name="pescado" value="9" onclick="filter(this)">
-        <label class="form-check-label" for="pescado">Pescado</label>
-    </div>
-    <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="trigo" name="trigo" value="10" onclick="filter(this)">
-        <label class="form-check-label" for="trigo">Trigo</label>
-    </div>
-    <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="soja" name="soja" value="11" onclick="filter(this)">
-        <label class="form-check-label" for="soja">Soja</label>
-    </div>
-    <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="maiz" name="maiz" value="12" onclick="filter(this)">
-        <label class="form-check-label" for="maiz">Maiz</label>
-    </div>
-    <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="sesamo" name="sesamo" value="13" onclick="filter(this)">
-        <label class="form-check-label" for="sesamo">Sesamo</label>
-    </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="cacahuete" name="cacahuete" value="14" onclick="filter(this)">
-            <label class="form-check-label" for="cacahuete">Cacahuete</label>
-        </div>
-</div>
-    <div class="row" id="contenedorEntradas">
-    </div>
+<div class="container" style="margin-auto; margin-top:50px;">
+
     <div class="row">
-        <div class="col-sm-12 text-center">
-            <div class="" type="button" data-bs-toggle="modal" data-bs-target="#formularioEvento">
-                <div class="">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formularioEvento">
-                        Crear un evento
-                    </button>
-                </div>
+        <div class="col text-center">
+            <div type="button" data-bs-toggle="modal" data-bs-target="#formularioEvento">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formularioEvento">
+                    Crear un evento
+                </button>
             </div>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col-3" id="filter">
+            <h4>Intolerancias</h4> 
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="cerdo" name="cerdo" value="1" onclick="filter(this)">
+                <label class="form-check-label" for="cerdo">Cerdo</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="marisco" name="marisco" value="2" onclick="filter(this)">
+                <label class="form-check-label" for="marsico">Marisco</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="celiaco" name="celiaco" value="3" onclick="filter(this)">
+                <label class="form-check-label" for="celiaco">Celiaco</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="lactosa" name="lactosa" value="4" onclick="filter(this)">
+                <label class="form-check-label" for="lactosa">Lactosa</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="frutossecos" name="frutossecos" value="5" onclick="filter(this)">
+                <label class="form-check-label" for="frutossecos">Frutos Secos</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="diabetes" name="diabetes" value="6" onclick="filter(this)">
+                <label class="form-check-label" for="diabetes">Diabetes</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="huevos" name="huevos" value="7" onclick="filter(this)">
+                <label class="form-check-label" for="huevos">Huevos</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="hypertension" name="hypertension" value="8" onclick="filter(this)">
+                <label class="form-check-label" for="hypertension">Hypertension</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="pescado" name="pescado" value="9" onclick="filter(this)">
+                <label class="form-check-label" for="pescado">Pescado</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="trigo" name="trigo" value="10" onclick="filter(this)">
+                <label class="form-check-label" for="trigo">Trigo</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="soja" name="soja" value="11" onclick="filter(this)">
+                <label class="form-check-label" for="soja">Soja</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="maiz" name="maiz" value="12" onclick="filter(this)">
+                <label class="form-check-label" for="maiz">Maiz</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="sesamo" name="sesamo" value="13" onclick="filter(this)">
+                <label class="form-check-label" for="sesamo">Sesamo</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="cacahuete" name="cacahuete" value="14" onclick="filter(this)">
+                <label class="form-check-label" for="cacahuete">Cacahuete</label>
+            </div>
+        </div>
+        <div class="col" id="contenedorEntradas">
+
         </div>
     </div>
 </div>
@@ -92,7 +98,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="cantidadPublicadaProducto" class="form-label">Cantidad de Producto</label>
-                        <input type="number" class="form-control" name="cantidadPublicadaProducto" id="cantidadPublicadaProducto" required>
+                        <input type="number" class="form-control" name="cantidadPublicadaProducto" id="cantidadPublicadaProducto" value="1" required>
                     </div>
                     <div class="mb-3">
                         <label for="direccion" class="form-label">Direccion</label>
@@ -118,35 +124,35 @@
                     <hr />
                     <h1>Alergias/Intolerancias</h1>
                     <div class="mb-3">
-                        <input type="checkbox" id="cerdo" name="cerdo">
+                        <input type="checkbox" class="reg-alergia" id="reg-alergia-cerdo" value="1">
                         <label for="cerdo">Cerdo</label>
-                        <input type="checkbox" id="marisco" name="marisco">
+                        <input type="checkbox" class="reg-alergia" id="reg-alergia-marisco" value="2">
                         <label for="marisco">Marisco</label>
-                        <input type="checkbox" id="celiaco" name="celiaco">
+                        <input type="checkbox" class="reg-alergia" id="reg-alergia-celiaco" value="3">
                         <label for="celiaco">Celiaco</label>
-                        <input type="checkbox" id="lactosa" name="lactosa">
+                        <input type="checkbox" class="reg-alergia" id="reg-alergia-lactosa" value="4">
                         <label for="lactosa">Lactosa</label>
                         <br />
-                        <input type="checkbox" id="frutossecos" name="frutossecos">
+                        <input type="checkbox" class="reg-alergia" id="reg-alergia-frutossecos" value="5">
                         <label for="frutosecos">Frutos secos</label>
-                        <input type="checkbox" id="diabetes" name="diabetes">
+                        <input type="checkbox" class="reg-alergia" id="reg-alergia-diabetes" value="6">
                         <label for="diabetes">Diabetes</label>
-                        <input type="checkbox" id="huevos" name="huevos">
+                        <input type="checkbox" class="reg-alergia" id="reg-alergia-huevos" value="7">
                         <label for="huevos">Huevos</label>
-                        <input type="checkbox" id="hiertension" name="hipertension">
+                        <input type="checkbox" class="reg-alergia" id="reg-alergia-hipertension" value="8">
                         <label for="hipertension">Hipertension</label>
                         <br />
-                        <input type="checkbox" id="pescado" name="pescado">
+                        <input type="checkbox" class="reg-alergia" id="reg-alergia-pescado" value="9">
                         <label for="pescado">Pescado</label>
-                        <input type="checkbox" id="trigo" name="trigo">
+                        <input type="checkbox" class="reg-alergia" id="reg-alergia-trigo" value="10">
                         <label for="trigo">Trigo</label>
-                        <input type="checkbox" id="soja" name="soja">
+                        <input type="checkbox" class="reg-alergia" id="reg-alergia-soja" value="11">
                         <label for="soja">Soja</label>
-                        <input type="checkbox" id="maiz" name="maiz">
+                        <input type="checkbox" class="reg-alergia" id="reg-alergia-maiz" value="12">
                         <label for="maiz">Maiz</label>
-                        <input type="checkbox" id="sesamo" name="sesamo">
+                        <input type="checkbox" class="reg-alergia" id="reg-alergia-sesamo" value="13">
                         <label for="sesamo">Sesamo</label>
-                        <input type="checkbox" id="cacahuete" name="cacahuete">
+                        <input type="checkbox" class="reg-alergia" id="reg-alergia-cacahuete" value="14">
                         <label for="cacahuete">Cacahuete</label>
 
                     </div>
@@ -165,22 +171,32 @@
     function guardarEvento() {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
-        var alerg = [];
 
-        var raw = JSON.stringify({
-            "usuarioProveedorId": 1,
-            "usuarioEmpresaId": null,
-            "usuarioOngId": null,
-            "nombreProducto": document.getElementById("nombreProducto").value,
-            "cantidadPublicadaProducto": document.getElementById("cantidadPublicadaProducto").value,
-            "unidadesRestantes": document.getElementById("cantidadPublicadaProducto").value,
-            "direccion": document.getElementById("direccion").value,
-            "longitud": 41.3884376,
-            "latitud": 2.1616888,
-            "fechaHoraInicio": document.getElementById("fechaHoraInicio").value,
-            "fechaHoraFin": document.getElementById("fechaHoraFin").value,
-            "categoriaHoraria": document.getElementById("categoriaHoriaria").value 
+        var alergias = [];
+        const checkboxesAlergias = document.getElementsByClassName("reg-alergia");
+        
+        Array.prototype.forEach.call(checkboxesAlergias, function (element) {
+            if (element.checked) {
+                alergias.push(element.value);
+            }
         });
+
+        var raw = JSON.stringify(
+            {
+                "usuarioProveedorId": 1,
+                "usuarioEmpresaId": null,
+                "usuarioOngId": null,
+                "nombreProducto": document.getElementById("nombreProducto").value,
+                "cantidadPublicadaProducto": document.getElementById("cantidadPublicadaProducto").value,
+                "unidadesRestantes": document.getElementById("cantidadPublicadaProducto").value,
+                "direccion": document.getElementById("direccion").value,
+                "longitud": 41.3884376,
+                "latitud": 2.1616888,
+                "fechaHoraInicio": document.getElementById("fechaHoraInicio").value,
+                "fechaHoraFin": document.getElementById("fechaHoraFin").value,
+                "categoriaHoraria": document.getElementById("categoriaHoriaria").value,
+                "alergias": alergias
+            });
 
         var requestOptions = {
             method: 'POST',
@@ -196,27 +212,28 @@
     }
 
     function filter(checkbox) {
-
-        // Obtener el valor del checkbox seleccionado
         const alergiaId = parseInt(checkbox.value);
-            console.log(alergiaId);
-        // Ocultar los datos que tengan el campo "id" igual al campo "alergias" del callAPI
+
         callAPI().then((json) => {
-            console.log(json);
             for (let i = 0; i < json.length; i++) {
-                console.log(alergiaId+json[0].alergias[0]);
-                if (json[i].alergias.includes((alergiaId))) {
-                    console.log(document.getElementById(json[i].id));
+                if (checkbox.checked && json[i].alergias.includes((alergiaId))) {
                     var productoVisual = document.getElementById(json[i].id);
-                    
-                    productoVisual.setAttribute("hidden", "true");x
-                } 
+                    productoVisual.setAttribute("style", "display: none!important;");
+                }
+                else {
+                    var productoVisual = document.getElementById(json[i].id);
+                    productoVisual.setAttribute("style", "display: inline-block!important;");
+                }
+
+                console.log(json[i].unidadesRestantes);
+
+                if (json[i].unidadesRestantes == 0) {
+                    var productoVisual = document.getElementById(json[i].id);
+                    productoVisual.setAttribute("style", "display: none!important;");
+                }
             }
-        })
-        }
-        
-        
-    
+        });
+    }
 
     async function callAPI() {
         const response = await fetch("https://localhost:7211/api/evento");
@@ -225,41 +242,92 @@
     }
 
     callAPI().then((json) => {
+        document.getElementById("contenedorEntradas").innerHTML = "";
         json.forEach((element) => {
+
+            if (element.unidadesRestantes == 0)
+                return;
+
+            var nombresAlergias = [
+                "Cerdo",
+                "Marisco",
+                "Celíaco",
+                "Lactosa",
+                "Frutos secos",
+                "Diabetes",
+                "Huevos",
+                "Hipertensión",
+                "Pescado",
+                "Trigo",
+                "Soja",
+                "Maíz",
+                "Sésamo",
+                "Cacahuete"
+            ];
+
+            var textoAlergias = "";
+
+            element.alergias.forEach((alergia) => {
+                textoAlergias += "<li>" + nombresAlergias[alergia - 1] + "</li>";
+            });
+
+            var tituloAlergias = "";
+
+            if (textoAlergias.length > 0)
+                tituloAlergias = "<strong>Alergias</strong>";
+
             document.getElementById("contenedorEntradas").innerHTML +=
             `
-                <div id="${element.id}" class="card col-3">
-                    <div class="card-body" type="button" data-bs-toggle="modal" data-bs-target="#InscripcionEvento">
+            <div id="${element.id}" class="card col-5 m-3 bg-light d-inline-block align-top">
+                    <div class="card-body" type="button" data-bs-toggle="modal" data-bs-target="#InscripcionEvento-${element.id}">
                     <h5 class="card-title">${element.nombreProducto}</h5>
-                    <h5 class="card-title">${element.fechaHoraInicio}</h5>
-                    <h5 class="card-title">${element.fechaHoraFin}</h5>
-                    <h5 class="card-title">${element.direccion}</h5>
-                    <h5 class="card-title">${element.cantidadPublicadaProducto}</h5>
-                    <h5 class="card-title">${element.alergias}</h5>
-                                                <!-- Formulario modal -->
-                                    <div class="modal fade" id="InscripcionEvento" tabindex="-1" aria-labelledby="InscripcionEventoSi" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                                <h5 class="modal-title" id="InscripcionEventoSi">Gracias por colaborar</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                <button type="button" class="btn btn-primary" onclick="apuntarmeOferta()">Te quieres apuntar a esta oferta?????</button>
-                                        </div>
-                                    </div>
+                        <strong>Inicio</strong>
+                        <p>${element.fechaHoraInicio}</p><br>
+                        <strong>Fin</strong>
+                        <p>${element.fechaHoraFin}</p><br>
+                        <strong>Dirección</strong>
+                        <p>${element.direccion}</p><br>
+                        <strong>Unidades disponibles</strong>
+                        <p><b>${element.unidadesRestantes}</b> / ${element.cantidadPublicadaProducto} </p><br>
+                        ${tituloAlergias}
+                    <ul>
+                        ${textoAlergias}
+                    </ul>
+
+                    <!-- Formulario modal -->
+                    <div class="modal fade" id="InscripcionEvento-${element.id}" tabindex="-1" aria-labelledby="InscripcionEventoSi" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="InscripcionEventoSi">Gracias por colaborar</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="button" class="btn btn-primary" onclick="apuntarmeOferta(${element.id})">Te quieres apuntar a esta oferta?????</button>
                                 </div>
                             </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             `;
         })
     });
 
-    function apuntarmeOferta(){
+    function apuntarmeOferta(idEvento) {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
 
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+        
+        fetch("https://localhost:7211/api/suscribir/1/" + idEvento, requestOptions)
+            .then(response => response.text())
+            .then(result => { location.reload(); })
+            .catch(error => console.log('error', error));
     }
-
-    callAPI();
 </script>
