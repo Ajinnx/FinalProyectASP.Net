@@ -1,8 +1,66 @@
 ﻿@{
 }
 <div class="container" style="margin-auto; margin-top:100px;">
+    <div id="filter">
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="cerdo" name="cerdo" value="1" onclick="filter(this)">
+        <label class="form-check-label" for="cerdo">Cerdo</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="marisco" name="marisco" value="2" onclick="filter(this)">
+        <label class="form-check-label" for="marsico">Marisco</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="celiaco" name="celiaco" value="3" onclick="filter(this)">
+        <label class="form-check-label" for="celiaco">Celiaco</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="lactosa" name="lactosa" value="4" onclick="filter(this)">
+        <label class="form-check-label" for="lactosa">Lactosa</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="frutossecos" name="frutossecos" value="5" onclick="filter(this)">
+        <label class="form-check-label" for="frutossecos">Frutos Secos</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="diabetes" name="diabetes" value="6" onclick="filter(this)">
+        <label class="form-check-label" for="diabetes">Diabetes</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="huevos" name="huevos" value="7" onclick="filter(this)">
+        <label class="form-check-label" for="huevos">Huevos</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="hypertension" name="hypertension" value="8" onclick="filter(this)">
+        <label class="form-check-label" for="hypertension">Hypertension</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="pescado" name="pescado" value="9" onclick="filter(this)">
+        <label class="form-check-label" for="pescado">Pescado</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="trigo" name="trigo" value="10" onclick="filter(this)">
+        <label class="form-check-label" for="trigo">Trigo</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="soja" name="soja" value="11" onclick="filter(this)">
+        <label class="form-check-label" for="soja">Soja</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="maiz" name="maiz" value="12" onclick="filter(this)">
+        <label class="form-check-label" for="maiz">Maiz</label>
+    </div>
+    <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="sesamo" name="sesamo" value="13" onclick="filter(this)">
+        <label class="form-check-label" for="sesamo">Sesamo</label>
+    </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="cacahuete" name="cacahuete" value="14" onclick="filter(this)">
+            <label class="form-check-label" for="cacahuete">Cacahuete</label>
+        </div>
+</div>
     <div class="row" id="contenedorEntradas">
-    </div>s
+    </div>
     <div class="row">
         <div class="col-sm-12 text-center">
             <div class="" type="button" data-bs-toggle="modal" data-bs-target="#formularioEvento">
@@ -33,8 +91,8 @@
                         <input type="text" class="form-control" name="nombreProducto" id="nombreProducto" required>
                     </div>
                     <div class="mb-3">
-                        <label for="cantidadPublicadaPÑroducto" class="form-label">Cantidad de Producto</label>
-                        <input type="number" class="form-control" name="cantidadPublicadaPÑroducto" id="cantidadPublicadaPÑroducto" required>
+                        <label for="cantidadPublicadaProducto" class="form-label">Cantidad de Producto</label>
+                        <input type="number" class="form-control" name="cantidadPublicadaProducto" id="cantidadPublicadaProducto" required>
                     </div>
                     <div class="mb-3">
                         <label for="direccion" class="form-label">Direccion</label>
@@ -42,11 +100,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="fechaHoraInicio" class="form-label">Fecha de Inicio</label>
-                        <input type="date" class="form-control" name="fechaHoraInicio" id="fechaHoraInicio" required>
+                        <input type="datetime-local" class="form-control" name="fechaHoraInicio" id="fechaHoraInicio" required>
                     </div>
                     <div class="mb-3">
                         <label for="fechaHoraFin" class="form-label">Fecha de Fin</label>
-                        <input type="date" class="form-control" name="fechaHoraFin" id="fechaHoraFin" required>
+                        <input type="datetime-local" class="form-control" name="fechaHoraFin" id="fechaHoraFin" required>
                     </div>
                     <div class="mb-3">
                         <label for="categoriaHoriaria" class="form-label">Categoria Horaria</label>
@@ -96,13 +154,70 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="guardarRegistro2()">Guardar</button>
+                <button type="button" class="btn btn-primary" onclick="guardarEvento()">Guardar</button>
             </div>
         </div>
     </div>
 </div>
 
 <script>
+
+    function guardarEvento() {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var alerg = [];
+
+        var raw = JSON.stringify({
+            "usuarioProveedorId": 1,
+            "usuarioEmpresaId": null,
+            "usuarioOngId": null,
+            "nombreProducto": document.getElementById("nombreProducto").value,
+            "cantidadPublicadaProducto": document.getElementById("cantidadPublicadaProducto").value,
+            "unidadesRestantes": document.getElementById("cantidadPublicadaProducto").value,
+            "direccion": document.getElementById("direccion").value,
+            "longitud": 41.3884376,
+            "latitud": 2.1616888,
+            "fechaHoraInicio": document.getElementById("fechaHoraInicio").value,
+            "fechaHoraFin": document.getElementById("fechaHoraFin").value,
+            "categoriaHoraria": document.getElementById("categoriaHoriaria").value 
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("https://localhost:7211/api/evento", requestOptions)
+            .then(response => response.text())
+            .then(result => $('#formularioEvento').modal('hide'))
+            .catch(error => console.log('error', error));
+    }
+
+    function filter(checkbox) {
+
+        // Obtener el valor del checkbox seleccionado
+        const alergiaId = parseInt(checkbox.value);
+            console.log(alergiaId);
+        // Ocultar los datos que tengan el campo "id" igual al campo "alergias" del callAPI
+        callAPI().then((json) => {
+            console.log(json);
+            for (let i = 0; i < json.length; i++) {
+                console.log(alergiaId+json[0].alergias[0]);
+                if (json[i].alergias.includes((alergiaId))) {
+                    console.log(document.getElementById(json[i].id));
+                    var productoVisual = document.getElementById(json[i].id);
+                    
+                    productoVisual.setAttribute("hidden", "true");x
+                } 
+            }
+        })
+        }
+        
+        
+    
+
     async function callAPI() {
         const response = await fetch("https://localhost:7211/api/evento");
         const jsonResponse = await response.json();
@@ -113,14 +228,38 @@
         json.forEach((element) => {
             document.getElementById("contenedorEntradas").innerHTML +=
             `
-            <div class="card col-4">
-                <div class="card-body">
+                <div id="${element.id}" class="card col-3">
+                    <div class="card-body" type="button" data-bs-toggle="modal" data-bs-target="#InscripcionEvento">
                     <h5 class="card-title">${element.nombreProducto}</h5>
+                    <h5 class="card-title">${element.fechaHoraInicio}</h5>
+                    <h5 class="card-title">${element.fechaHoraFin}</h5>
+                    <h5 class="card-title">${element.direccion}</h5>
+                    <h5 class="card-title">${element.cantidadPublicadaProducto}</h5>
+                    <h5 class="card-title">${element.alergias}</h5>
+                                                <!-- Formulario modal -->
+                                    <div class="modal fade" id="InscripcionEvento" tabindex="-1" aria-labelledby="InscripcionEventoSi" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                                <h5 class="modal-title" id="InscripcionEventoSi">Gracias por colaborar</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                <button type="button" class="btn btn-primary" onclick="apuntarmeOferta()">Te quieres apuntar a esta oferta?????</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                 </div>
             </div>
             `;
         })
     });
+
+    function apuntarmeOferta(){
+
+    }
 
     callAPI();
 </script>
