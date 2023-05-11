@@ -214,7 +214,7 @@
 
         fetch("https://localhost:7211/api/evento", requestOptions)
             .then(response => response.text())
-            .then(result => $('#formularioEvento').modal('hide'))
+            .then(result => location.reload())
             .catch(error => console.log('error', error));
     }
 

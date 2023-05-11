@@ -94,7 +94,6 @@
                     console.log("User logged in successfully");
                     // Add your login logic here, for example redirect the user to the dashboard page
                     loginSuccess();
-                    hideLoginAndRegisterLinks();
                 } else {
                     // Passwords don't match, display error message
                     console.log("Invalid username or password");
@@ -109,8 +108,10 @@
 </script>
 <script>
     function loginSuccess() {
-        window.location.href = "/Home/Index";
+        window.location.href = "/Home/RegistrarEvento";
     }
+</script>
+<script>
     // Get the navbar dropdown element
     var navbarDropdown = document.querySelector(".dropdown-menu");
 
