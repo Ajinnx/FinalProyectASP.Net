@@ -62,7 +62,7 @@ public sealed class UsuarioReceptorsController : ControllerBase
         return NoContent();
     }
 
-    [HttpPost]
+    [HttpPost]  
     public async Task<ActionResult<UsuarioReceptorDto>> PostUsuarioReceptor(UsuarioReceptorDto usuarioReceptorDto)
     {
         if (_context.UsuariosReceptores == null)
