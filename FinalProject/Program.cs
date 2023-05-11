@@ -20,7 +20,6 @@ app.UseCors(policyBuilder => policyBuilder.AllowAnyOrigin().AllowAnyMethod().All
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-app.UseAuthentication();
 app.UseCookiePolicy();
 app.UseAuthorization();
 
