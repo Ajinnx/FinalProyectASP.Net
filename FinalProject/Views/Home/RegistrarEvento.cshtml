@@ -74,6 +74,9 @@
                 <label class="form-check-label" for="cacahuete">Cacahuete</label>
             </div>
         </div>
+        <div class="col" id="cargandoEntradas">
+            <h2>Cargando eventos...</h2>
+        </div>
         <div class="col" id="contenedorEntradas">
 
         </div>
@@ -92,69 +95,73 @@
             <div class="modal-body">
                 <!-- Formulario con los campos -->
                 <form id="formularioUserReceptor">
-                    <div class="mb-3">
-                        <label for="nombreProducto" class="form-label">Producto</label>
-                        <input type="text" class="form-control" name="nombreProducto" id="nombreProducto" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cantidadPublicadaProducto" class="form-label">Cantidad de Producto</label>
-                        <input type="number" class="form-control" name="cantidadPublicadaProducto" id="cantidadPublicadaProducto" value="1" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="direccion" class="form-label">Direccion</label>
-                        <input type="text" class="form-control" name="direccion" id="direccion" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="fechaHoraInicio" class="form-label">Fecha de Inicio</label>
-                        <input type="datetime-local" class="form-control" name="fechaHoraInicio" id="fechaHoraInicio" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="fechaHoraFin" class="form-label">Fecha de Fin</label>
-                        <input type="datetime-local" class="form-control" name="fechaHoraFin" id="fechaHoraFin" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="categoriaHoriaria" class="form-label">Categoria Horaria</label>
-                        <select name="categoriaHoriaria" name="categoriaHoriaria" id="categoriaHoriaria">
-                            <option value="0">Desayuno</option>
-                            <option value="1">Comida</option>
-                            <option value="2">Merienda</option>
-                            <option value="3">Cena</option>
-                        </select>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="mb-3">
+                                    <label for="nombreProducto" class="form-label">Producto</label>
+                                    <input type="text" class="form-control" name="nombreProducto" id="nombreProducto" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="cantidadPublicadaProducto" class="form-label">Cantidad de Producto</label>
+                                    <input type="number" class="form-control" name="cantidadPublicadaProducto" id="cantidadPublicadaProducto" value="1" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="direccion" class="form-label">Direccion</label>
+                                    <input type="text" class="form-control" name="direccion" id="direccion" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fechaHoraInicio" class="form-label">Fecha de Inicio</label>
+                                    <input type="datetime-local" class="form-control" name="fechaHoraInicio" id="fechaHoraInicio" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fechaHoraFin" class="form-label">Fecha de Fin</label>
+                                    <input type="datetime-local" class="form-control" name="fechaHoraFin" id="fechaHoraFin" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="categoriaHoriaria" class="form-label">Categoria Horaria</label>
+                                    <select name="categoriaHoriaria" name="categoriaHoriaria" id="categoriaHoriaria">
+                                        <option value="0">Desayuno</option>
+                                        <option value="1">Comida</option>
+                                        <option value="2">Merienda</option>
+                                        <option value="3">Cena</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <h4>Intolerancias</h4>
+                                    <input type="checkbox" class="reg-alergia" id="reg-alergia-cerdo" value="1">
+                                    <label for="cerdo">Cerdo</label><br />
+                                    <input type="checkbox" class="reg-alergia" id="reg-alergia-marisco" value="2">
+                                    <label for="marisco">Marisco</label><br />
+                                    <input type="checkbox" class="reg-alergia" id="reg-alergia-celiaco" value="3">
+                                    <label for="celiaco">Celiaco</label><br />
+                                    <input type="checkbox" class="reg-alergia" id="reg-alergia-lactosa" value="4">
+                                    <label for="lactosa">Lactosa</label><br />
+                                    <input type="checkbox" class="reg-alergia" id="reg-alergia-frutossecos" value="5">
+                                    <label for="frutosecos">Frutos secos</label><br />
+                                    <input type="checkbox" class="reg-alergia" id="reg-alergia-diabetes" value="6">
+                                    <label for="diabetes">Diabetes</label><br />
+                                    <input type="checkbox" class="reg-alergia" id="reg-alergia-huevos" value="7">
+                                    <label for="huevos">Huevos</label><br />
+                                    <input type="checkbox" class="reg-alergia" id="reg-alergia-hipertension" value="8">
+                                    <label for="hipertension">Hipertension</label><br />
+                                    <input type="checkbox" class="reg-alergia" id="reg-alergia-pescado" value="9">
+                                    <label for="pescado">Pescado</label><br />
+                                    <input type="checkbox" class="reg-alergia" id="reg-alergia-trigo" value="10">
+                                    <label for="trigo">Trigo</label><br />
+                                    <input type="checkbox" class="reg-alergia" id="reg-alergia-soja" value="11">
+                                    <label for="soja">Soja</label><br />
+                                    <input type="checkbox" class="reg-alergia" id="reg-alergia-maiz" value="12">
+                                <label for="maiz">Maiz</label><br />
+                                    <input type="checkbox" class="reg-alergia" id="reg-alergia-sesamo" value="13">
+                                <label for="sesamo">Sesamo</label><br />
+                                    <input type="checkbox" class="reg-alergia" id="reg-alergia-cacahuete" value="14">
+                                    <label for="cacahuete">Cacahuete</label><br />
+                            
+                        </div>
                     </div>
                     <hr />
-                    <h1>Alergias/Intolerancias</h1>
-                    <div class="mb-3">
-                        <input type="checkbox" class="reg-alergia" id="reg-alergia-cerdo" value="1">
-                        <label for="cerdo">Cerdo</label>
-                        <input type="checkbox" class="reg-alergia" id="reg-alergia-marisco" value="2">
-                        <label for="marisco">Marisco</label>
-                        <input type="checkbox" class="reg-alergia" id="reg-alergia-celiaco" value="3">
-                        <label for="celiaco">Celiaco</label>
-                        <input type="checkbox" class="reg-alergia" id="reg-alergia-lactosa" value="4">
-                        <label for="lactosa">Lactosa</label>
-                        <br />
-                        <input type="checkbox" class="reg-alergia" id="reg-alergia-frutossecos" value="5">
-                        <label for="frutosecos">Frutos secos</label>
-                        <input type="checkbox" class="reg-alergia" id="reg-alergia-diabetes" value="6">
-                        <label for="diabetes">Diabetes</label>
-                        <input type="checkbox" class="reg-alergia" id="reg-alergia-huevos" value="7">
-                        <label for="huevos">Huevos</label>
-                        <input type="checkbox" class="reg-alergia" id="reg-alergia-hipertension" value="8">
-                        <label for="hipertension">Hipertension</label>
-                        <br />
-                        <input type="checkbox" class="reg-alergia" id="reg-alergia-pescado" value="9">
-                        <label for="pescado">Pescado</label>
-                        <input type="checkbox" class="reg-alergia" id="reg-alergia-trigo" value="10">
-                        <label for="trigo">Trigo</label>
-                        <input type="checkbox" class="reg-alergia" id="reg-alergia-soja" value="11">
-                        <label for="soja">Soja</label>
-                        <input type="checkbox" class="reg-alergia" id="reg-alergia-maiz" value="12">
-                        <label for="maiz">Maiz</label>
-                        <input type="checkbox" class="reg-alergia" id="reg-alergia-sesamo" value="13">
-                        <label for="sesamo">Sesamo</label>
-                        <input type="checkbox" class="reg-alergia" id="reg-alergia-cacahuete" value="14">
-                        <label for="cacahuete">Cacahuete</label>
-
                     </div>
                 </form>
             </div>
@@ -218,18 +225,22 @@
             for (let i = 0; i < json.length; i++) {
                 if (checkbox.checked && json[i].alergias.includes((alergiaId))) {
                     var productoVisual = document.getElementById(json[i].id);
-                    productoVisual.setAttribute("style", "display: none!important;");
+
+                    if (productoVisual != null)
+                        productoVisual.setAttribute("style", "display: none!important;");
                 }
                 else {
                     var productoVisual = document.getElementById(json[i].id);
-                    productoVisual.setAttribute("style", "display: inline-block!important;");
+                    
+                    if (productoVisual != null)
+                        productoVisual.setAttribute("style", "display: inline-block!important;");
                 }
-
-                console.log(json[i].unidadesRestantes);
 
                 if (json[i].unidadesRestantes == 0) {
                     var productoVisual = document.getElementById(json[i].id);
-                    productoVisual.setAttribute("style", "display: none!important;");
+
+                    if (productoVisual != null)
+                        productoVisual.setAttribute("style", "display: none!important;");
                 }
             }
         });
@@ -242,6 +253,8 @@
     }
 
     callAPI().then((json) => {
+        document.getElementById("cargandoEntradas").setAttribute("hidden", "true");
+
         document.getElementById("contenedorEntradas").innerHTML = "";
         json.forEach((element) => {
 
